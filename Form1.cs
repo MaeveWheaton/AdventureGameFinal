@@ -12,6 +12,9 @@ namespace AdventureGameFinal
 {
     public partial class Form1 : Form
     {
+        #region Global variables
+        
+        #endregion
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +27,8 @@ namespace AdventureGameFinal
             this.Controls.Add(ns);
 
             ns.Location = new Point((this.Width - ns.Width) / 2, (this.Height - ns.Height) / 2);
+
+            ns.Focus();
         }
     }
 }

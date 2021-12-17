@@ -32,7 +32,7 @@ namespace AdventureGameFinal
                 case (Keys.Down):
                     downArrowDown = false;
                     break;
-                case (Keys.B):
+                case (Keys.Space):
                     spaceDown = false;
                     break;
             }
@@ -48,7 +48,7 @@ namespace AdventureGameFinal
                 case (Keys.Down):
                     downArrowDown = true;
                     break;
-                case (Keys.B):
+                case (Keys.Space):
                     spaceDown = true;
                     break;
             }
@@ -56,53 +56,101 @@ namespace AdventureGameFinal
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
+            //start tick loop
             mainScreenTimer.Enabled = true;
+
+            //begin with start selected
+            selectionState = 0;
             startLabel.BorderStyle = BorderStyle.Fixed3D;
+            howToLabel.BorderStyle = BorderStyle.None;
+            exitLabel.BorderStyle = BorderStyle.None;
         }
 
         private void mainScreenTimer_Tick(object sender, EventArgs e)
         {
-            if (downArrowDown)
+            //switch selected button if down/up pressed,
+            //change to corresponding screen if space pressed
+            switch (selectionState)
             {
-                selectionState = 1;
-                howToLabel.BorderStyle = BorderStyle.Fixed3D;
-                startLabel.BorderStyle = BorderStyle.None;
+                case 0: //start selected
+                    #region Case 0
+                    if (downArrowDown) //change to how to selected
+                    {
+                        selectionState = 1;
+                        howToLabel.BorderStyle = BorderStyle.Fixed3D;
+                        startLabel.BorderStyle = BorderStyle.None;
 
-                downArrowDown = false;
-            }
-            if (upArrowDown)
-            {
-                selectionState = 0;
-                startLabel.BorderStyle = BorderStyle.Fixed3D;
-                howToLabel.BorderStyle = BorderStyle.None;
+                        downArrowDown = false;
+                    }
+                    if (spaceDown) //change to customization screen
+                    {
+                        mainScreenTimer.Enabled = false;
 
-                upArrowDown = false;
-            }
-            
-            if(spaceDown)
-            {
-                if(selectionState == 0)
-                {
-                    mainScreenTimer.Enabled = false;
+                        Form f = this.FindForm();
+                        f.Controls.Remove(this);
 
-                    Form f = this.FindForm();
-                    f.Controls.Remove(this);
+                        Screens.CustomizationScreen ns = new Screens.CustomizationScreen();
+                        ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
+                        f.Controls.Add(ns);
 
-                    //CustomizationScreen cs = new CustomizationScreen();
-                    //gs.Location = new Point((f.Width - gs.Width) / 2, (f.Height - gs.Height) / 2);
-                    //f.Controls.Add(gs);
+                        spaceDown = false;
 
-                    //bDown = false;
+                        ns.Focus();
+                    }
+                    #endregion
+                    break;
+                case 1: //how to selected
+                    #region Case 1
+                    if (upArrowDown) //change to start selected
+                    {
+                        selectionState = 0;
+                        startLabel.BorderStyle = BorderStyle.Fixed3D;
+                        howToLabel.BorderStyle = BorderStyle.None;
 
-                    //gs.Focus();
-                }
-                else
-                {
+                        upArrowDown = false;
+                    }
+                    if (downArrowDown) //change to exit selected
+                    {
+                        selectionState = 2;
+                        exitLabel.BorderStyle = BorderStyle.Fixed3D;
+                        howToLabel.BorderStyle = BorderStyle.None;
 
-                }
+                        downArrowDown = false;
+                    }
+                    if (spaceDown) //change to instuction screen
+                    {
+                        mainScreenTimer.Enabled = false;
+
+                        Form f = this.FindForm();
+                        f.Controls.Remove(this);
+
+                        Screens.InstructionScreen ns = new Screens.InstructionScreen();
+                        ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
+                        f.Controls.Add(ns);
+
+                        spaceDown = false;
+
+                        ns.Focus();
+                    }
+                    #endregion
+                    break;
+                case 2: //exit selected
+                    #region Case 2
+                    if (upArrowDown) //change to how to selected
+                    {
+                        selectionState = 1;
+                        howToLabel.BorderStyle = BorderStyle.Fixed3D;
+                        exitLabel.BorderStyle = BorderStyle.None;
+
+                        upArrowDown = false;
+                    }
+                    if (spaceDown) //close application
+                    {
+                        Application.Exit();
+                    }
+                    #endregion
+                    break;
             }
         }
-
-        
     }
 }

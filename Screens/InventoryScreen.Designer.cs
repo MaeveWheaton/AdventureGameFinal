@@ -35,8 +35,10 @@ namespace AdventureGameFinal.Screens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::AdventureGameFinal.Properties.Resources.mainscreenbg;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Name = "InventoryScreen";
-            this.Size = new System.Drawing.Size(1200, 700);
+            this.Size = new System.Drawing.Size(800, 470);
             this.ResumeLayout(false);
 
         }

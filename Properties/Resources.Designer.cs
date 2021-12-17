@@ -63,9 +63,59 @@ namespace AdventureGameFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bow_arrows {
+            get {
+                object obj = ResourceManager.GetObject("bow_arrows", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap catalystspritesheetsingle {
+            get {
+                object obj = ResourceManager.GetObject("catalystspritesheetsingle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap long_sword {
+            get {
+                object obj = ResourceManager.GetObject("long_sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mainscreenbg {
             get {
                 object obj = ResourceManager.GetObject("mainscreenbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap polearm {
+            get {
+                object obj = ResourceManager.GetObject("polearm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap throwing_knives {
+            get {
+                object obj = ResourceManager.GetObject("throwing_knives", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
