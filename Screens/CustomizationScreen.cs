@@ -76,9 +76,12 @@ namespace AdventureGameFinal.Screens
 
         private void customScreenTimer_Tick(object sender, EventArgs e)
         {
+            //change selected weapon if right/left keys pressed,
+            //save selection and begin game if space pressed
             switch (selectionState)
             {
                 case 0: //sword selected
+                    #region Case 0
                     if (rightArrowDown) //change to next selection to the right
                     {
                         //remove border from current selection
@@ -97,8 +100,10 @@ namespace AdventureGameFinal.Screens
                         //player.weapon = "mainSword";
                         StartGame();
                     }
+                    #endregion
                     break;
                 case 1: //polearm selected
+                    #region Case 1
                     if (rightArrowDown) //change to next selection to the right
                     {
                         //remove border from current selection
@@ -130,8 +135,10 @@ namespace AdventureGameFinal.Screens
                         //player.weapon = "mainPolearm";
                         StartGame();
                     }
+                    #endregion
                     break;
                 case 2: //bow selected
+                    #region Case 2
                     if (rightArrowDown) //change to next selection to the right
                     {
                         //remove border from current selection
@@ -163,8 +170,10 @@ namespace AdventureGameFinal.Screens
                         //player.weapon = "mainBow";
                         StartGame();
                     }
+                    #endregion
                     break;
                 case 3: //catalyst selected
+                    #region Case 3
                     if (leftArrowDown) //change to next selection to the left
                     {
                         //remove border from current selection
@@ -183,6 +192,7 @@ namespace AdventureGameFinal.Screens
                         //player.weapon = "mainCatalyst";
                         StartGame();
                     }
+                    #endregion
                     break;
             }
         }
