@@ -67,7 +67,8 @@ namespace AdventureGameFinal.Screens
             // 
             // polearmImage
             // 
-            this.polearmImage.BackgroundImage = global::AdventureGameFinal.Properties.Resources.polearm;
+            this.polearmImage.BackColor = System.Drawing.Color.Transparent;
+            this.polearmImage.BackgroundImage = global::AdventureGameFinal.Properties.Resources.editedpolearm;
             this.polearmImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.polearmImage.Location = new System.Drawing.Point(391, 225);
             this.polearmImage.Name = "polearmImage";

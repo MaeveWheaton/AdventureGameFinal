@@ -170,5 +170,11 @@
   <ItemGroup>
     <None Include="Resources\set_daggers.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editedpolearm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inkedimage0_LI.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
