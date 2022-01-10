@@ -55,9 +55,11 @@
     </Compile>
     <Compile Include="PlayingScreens\Play33.cs">
       <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="PlayingScreens\Play33.Designer.cs">
       <DependentUpon>Play33.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Screens\CombatScreen.cs">
       <SubType>UserControl</SubType>
@@ -161,6 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\long_sword.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\daggers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\set_daggers.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

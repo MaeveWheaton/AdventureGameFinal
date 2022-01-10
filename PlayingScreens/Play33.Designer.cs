@@ -1,7 +1,7 @@
 ﻿
-namespace AdventureGameFinal.Playing_Screens
+namespace AdventureGameFinal.PlayingScreens
 {
-    partial class _33
+    partial class Play33
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,11 +31,12 @@ namespace AdventureGameFinal.Playing_Screens
         {
             this.SuspendLayout();
             // 
-            // _33
+            // Play33
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "_33";
+            this.DoubleBuffered = true;
+            this.Name = "Play33";
             this.Size = new System.Drawing.Size(1200, 700);
             this.ResumeLayout(false);
 

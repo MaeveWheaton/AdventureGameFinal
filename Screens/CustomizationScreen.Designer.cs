@@ -34,12 +34,12 @@ namespace AdventureGameFinal.Screens
             this.swordImage = new System.Windows.Forms.PictureBox();
             this.polearmImage = new System.Windows.Forms.PictureBox();
             this.bowImage = new System.Windows.Forms.PictureBox();
-            this.catalystImage = new System.Windows.Forms.PictureBox();
+            this.daggersImage = new System.Windows.Forms.PictureBox();
             this.customScreenTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.swordImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.polearmImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bowImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catalystImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.daggersImage)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -85,15 +85,16 @@ namespace AdventureGameFinal.Screens
             this.bowImage.TabIndex = 5;
             this.bowImage.TabStop = false;
             // 
-            // catalystImage
+            // daggersImage
             // 
-            this.catalystImage.BackgroundImage = global::AdventureGameFinal.Properties.Resources.throwing_knives;
-            this.catalystImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.catalystImage.Location = new System.Drawing.Point(861, 225);
-            this.catalystImage.Name = "catalystImage";
-            this.catalystImage.Size = new System.Drawing.Size(196, 316);
-            this.catalystImage.TabIndex = 6;
-            this.catalystImage.TabStop = false;
+            this.daggersImage.BackColor = System.Drawing.Color.Transparent;
+            this.daggersImage.BackgroundImage = global::AdventureGameFinal.Properties.Resources.set_daggers;
+            this.daggersImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.daggersImage.Location = new System.Drawing.Point(861, 225);
+            this.daggersImage.Name = "daggersImage";
+            this.daggersImage.Size = new System.Drawing.Size(196, 316);
+            this.daggersImage.TabIndex = 6;
+            this.daggersImage.TabStop = false;
             // 
             // customScreenTimer
             // 
@@ -106,7 +107,7 @@ namespace AdventureGameFinal.Screens
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AdventureGameFinal.Properties.Resources.mainscreenbg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.catalystImage);
+            this.Controls.Add(this.daggersImage);
             this.Controls.Add(this.bowImage);
             this.Controls.Add(this.polearmImage);
             this.Controls.Add(this.swordImage);
@@ -120,7 +121,7 @@ namespace AdventureGameFinal.Screens
             ((System.ComponentModel.ISupportInitialize)(this.swordImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.polearmImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bowImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catalystImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.daggersImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +133,7 @@ namespace AdventureGameFinal.Screens
         private System.Windows.Forms.PictureBox swordImage;
         private System.Windows.Forms.PictureBox polearmImage;
         private System.Windows.Forms.PictureBox bowImage;
-        private System.Windows.Forms.PictureBox catalystImage;
+        private System.Windows.Forms.PictureBox daggersImage;
         private System.Windows.Forms.Timer customScreenTimer;
     }
 }

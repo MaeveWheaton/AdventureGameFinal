@@ -113,6 +113,16 @@ namespace AdventureGameFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap set_daggers {
+            get {
+                object obj = ResourceManager.GetObject("set_daggers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap throwing_knives {
             get {
                 object obj = ResourceManager.GetObject("throwing_knives", resourceCulture);

@@ -38,7 +38,7 @@ namespace AdventureGameFinal.Screens
             this.BackgroundImage = global::AdventureGameFinal.Properties.Resources.mainscreenbg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Name = "InventoryScreen";
-            this.Size = new System.Drawing.Size(800, 470);
+            this.Size = new System.Drawing.Size(800, 500);
             this.ResumeLayout(false);
 
         }

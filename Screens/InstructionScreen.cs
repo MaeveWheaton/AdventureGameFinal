@@ -15,6 +15,23 @@ namespace AdventureGameFinal.Screens
         public InstructionScreen()
         {
             InitializeComponent();
+        }            
+
+        private void InstructionScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case (Keys.Space):
+                    Form f = this.FindForm();
+                    f.Controls.Remove(this);
+
+                    MainScreen ns = new MainScreen();
+                    ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
+                    f.Controls.Add(ns);
+
+                    ns.Focus();
+                    break;
+            }
         }
     }
 }

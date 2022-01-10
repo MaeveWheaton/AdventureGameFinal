@@ -36,6 +36,7 @@ namespace AdventureGameFinal
             this.mainScreenTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.exitLabel = new System.Windows.Forms.Label();
+            this.spaceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,12 +111,28 @@ namespace AdventureGameFinal
             this.exitLabel.Text = "Exit";
             this.exitLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // spaceLabel
+            // 
+            this.spaceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spaceLabel.BackColor = System.Drawing.Color.Transparent;
+            this.spaceLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.spaceLabel.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spaceLabel.ForeColor = System.Drawing.Color.Black;
+            this.spaceLabel.Location = new System.Drawing.Point(338, 619);
+            this.spaceLabel.Name = "spaceLabel";
+            this.spaceLabel.Size = new System.Drawing.Size(517, 64);
+            this.spaceLabel.TabIndex = 5;
+            this.spaceLabel.Text = "Press space to select";
+            this.spaceLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AdventureGameFinal.Properties.Resources.mainscreenbg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.spaceLabel);
             this.Controls.Add(this.exitLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.howToLabel);
@@ -141,5 +158,6 @@ namespace AdventureGameFinal
         private System.Windows.Forms.Timer mainScreenTimer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label exitLabel;
+        private System.Windows.Forms.Label spaceLabel;
     }
 }

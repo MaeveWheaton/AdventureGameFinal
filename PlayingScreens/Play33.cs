@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdventureGameFinal.Playing_Screens
+namespace AdventureGameFinal.PlayingScreens
 {
-    public partial class _33 : UserControl
+    public partial class Play33 : UserControl
     {
-        public _33()
+        public Play33()
         {
             InitializeComponent();
         }

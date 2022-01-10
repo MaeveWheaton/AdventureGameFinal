@@ -67,7 +67,7 @@ namespace AdventureGameFinal.Screens
             weaponImages.Add(swordImage);
             weaponImages.Add(polearmImage);
             weaponImages.Add(bowImage);
-            weaponImages.Add(catalystImage);
+            weaponImages.Add(daggersImage);
 
             //start with far left selected
             selectionState = 0;
@@ -207,7 +207,7 @@ namespace AdventureGameFinal.Screens
             Form f = this.FindForm();
             f.Controls.Remove(this);
 
-            Playing_Screens._33 ns = new Playing_Screens._33();
+            PlayingScreens.Play33 ns = new PlayingScreens.Play33();
             ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
             f.Controls.Add(ns);
 

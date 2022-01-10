@@ -117,4 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="instructionsLabel.Text" xml:space="preserve">
+    <value>Use the arrow keys to navigate.
+To talk to a character, approach and press space.
+Combat is started automatically when you approach 
+a hostile character.
+To access your backpack, press B at any time except 
+when in conversation.
+During combat, 
+B - Attack  
+                      N - Shield (has a cooldown)  
+                             M - Special Attack (has a build up)
+</value>
+  </data>
 </root>
