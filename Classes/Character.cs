@@ -9,14 +9,14 @@ namespace AdventureGameFinal.Classes
     public class Character
     {
         public int x, y, speed, health, money;
-        public string weapon;
+        public string weapon, image;
 
         public Character()
         {
 
         }
 
-        void Move(string direction)
+        public void Move(string direction)
         {
             switch (direction)
             {
@@ -40,7 +40,7 @@ namespace AdventureGameFinal.Classes
     {
         public bool shielded;
 
-        public Player(int _x, int _y, int _speed, int _health, int _money, string _weapon, bool _shielded)
+        public Player(int _x, int _y, int _speed, int _health, int _money, string _weapon, bool _shielded, string _image)
         {
             x = _x;
             y = _y;
@@ -49,9 +49,10 @@ namespace AdventureGameFinal.Classes
             money = _money;
             weapon = _weapon;
             shielded = _shielded;
+            image = _image;
         }
 
-        void Combat(string action, int weaponStrength, NPC monster)
+        public void Combat(string action, int weaponStrength, NPC monster)
         {
             //If attack, reduce monster health by weapon strength
             //If defend, set character to shield up
@@ -76,16 +77,17 @@ namespace AdventureGameFinal.Classes
     {
         string type;
 
-        public NPC(int _x, int _y, int _health, string _weapon, string _type)
+        public NPC(int _x, int _y, int _health, string _weapon, string _type, string _image)
         {
             x = _x;
             y = _y;
             health = _health;
             weapon = _weapon;
             type = _type;
+            image = _image;
         }
 
-        void Combat(Player player, int weaponStrength, int shieldStrength)
+        public void Combat(Player player, int weaponStrength, int shieldStrength)
         {
             //If player shielded, weapon attack - shield strength, remove health
             //Else, reduce player health by weapon strength

@@ -13,9 +13,9 @@ namespace AdventureGameFinal
     public partial class Form1 : Form
     {
         #region Global variables
-        public static Classes.Character player = new Classes.Player(1100, 350, 5, 100, 0, "TBD", false);
+        public static Classes.Character player = new Classes.Player(600, 350, 5, 100, 0, "TBD", false, "catalystspritesheetsingle");
         #endregion
-
+        
         public Form1()
         {
             InitializeComponent();

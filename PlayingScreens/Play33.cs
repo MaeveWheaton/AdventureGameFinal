@@ -14,11 +14,23 @@ namespace AdventureGameFinal.PlayingScreens
     {
         #region Global variables
         Boolean upArrowDown, downArrowDown, rightArrowDown, leftArrowDown, spaceDown;
+        Point p = new Point();
+
+
         #endregion
+
+        
 
         public Play33()
         {
             InitializeComponent();
+        }
+
+
+        private void Play33_Load(object sender, EventArgs e)
+        {
+            //start game timer
+            gameTimer.Enabled = true;
         }
 
         private void Play33_KeyUp(object sender, KeyEventArgs e)
@@ -70,7 +82,35 @@ namespace AdventureGameFinal.PlayingScreens
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            if (upArrowDown)
+            {
+                Form1.player.Move("up");
+                upArrowDown = false;
+            }
+            else if (downArrowDown)
+            {
+                Form1.player.Move("down");
+                downArrowDown = false;
+            }
+            else if (rightArrowDown)
+            {
+                Form1.player.Move("right");
+                rightArrowDown = false;
+            }
+            else if (leftArrowDown)
+            {
+                Form1.player.Move("left");
+                leftArrowDown = false;
+            }
 
+            
+
+            Refresh();
+        }
+
+        private void Play33_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(Properties.Resources.catalystspritesheetsingle, Form1.player.x, Form1.player.y);
         }
     }
 }

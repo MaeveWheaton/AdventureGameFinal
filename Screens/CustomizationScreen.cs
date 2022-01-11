@@ -84,6 +84,7 @@ namespace AdventureGameFinal.Screens
 
         private void customScreenTimer_Tick(object sender, EventArgs e)
         {
+            //change instuction label when weapon selected
             if (selection == selectionState)
             {
                 instructionLabel.Text = "Space to Start";

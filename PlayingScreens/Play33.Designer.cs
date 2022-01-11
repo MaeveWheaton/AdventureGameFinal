@@ -32,10 +32,8 @@ namespace AdventureGameFinal.PlayingScreens
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Play33));
             this.hutPictureBox = new System.Windows.Forms.PictureBox();
-            this.playerSprite = new System.Windows.Forms.PictureBox();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.hutPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerSprite)).BeginInit();
             this.SuspendLayout();
             // 
             // hutPictureBox
@@ -43,23 +41,12 @@ namespace AdventureGameFinal.PlayingScreens
             this.hutPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.hutPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.hutPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("hutPictureBox.Image")));
-            this.hutPictureBox.Location = new System.Drawing.Point(871, 51);
+            this.hutPictureBox.Location = new System.Drawing.Point(888, 52);
             this.hutPictureBox.Name = "hutPictureBox";
             this.hutPictureBox.Size = new System.Drawing.Size(185, 284);
             this.hutPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.hutPictureBox.TabIndex = 2;
             this.hutPictureBox.TabStop = false;
-            // 
-            // playerSprite
-            // 
-            this.playerSprite.BackColor = System.Drawing.Color.Transparent;
-            this.playerSprite.Image = global::AdventureGameFinal.Properties.Resources.catalystspritesheetsingle;
-            this.playerSprite.Location = new System.Drawing.Point(778, 276);
-            this.playerSprite.Name = "playerSprite";
-            this.playerSprite.Size = new System.Drawing.Size(56, 80);
-            this.playerSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.playerSprite.TabIndex = 3;
-            this.playerSprite.TabStop = false;
             // 
             // gameTimer
             // 
@@ -71,15 +58,15 @@ namespace AdventureGameFinal.PlayingScreens
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AdventureGameFinal.Properties.Resources.grass2__1_;
-            this.Controls.Add(this.playerSprite);
             this.Controls.Add(this.hutPictureBox);
             this.DoubleBuffered = true;
             this.Name = "Play33";
             this.Size = new System.Drawing.Size(1200, 700);
+            this.Load += new System.EventHandler(this.Play33_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Play33_Paint);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Play33_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Play33_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.hutPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playerSprite)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,7 +74,6 @@ namespace AdventureGameFinal.PlayingScreens
         #endregion
 
         private System.Windows.Forms.PictureBox hutPictureBox;
-        private System.Windows.Forms.PictureBox playerSprite;
         private System.Windows.Forms.Timer gameTimer;
     }
 }
