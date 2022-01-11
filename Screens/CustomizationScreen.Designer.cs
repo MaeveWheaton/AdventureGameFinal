@@ -36,6 +36,7 @@ namespace AdventureGameFinal.Screens
             this.bowImage = new System.Windows.Forms.PictureBox();
             this.daggersImage = new System.Windows.Forms.PictureBox();
             this.customScreenTimer = new System.Windows.Forms.Timer(this.components);
+            this.instructionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.swordImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.polearmImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bowImage)).BeginInit();
@@ -103,12 +104,27 @@ namespace AdventureGameFinal.Screens
             this.customScreenTimer.Interval = 20;
             this.customScreenTimer.Tick += new System.EventHandler(this.customScreenTimer_Tick);
             // 
+            // instructionLabel
+            // 
+            this.instructionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.instructionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.instructionLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.instructionLabel.Font = new System.Drawing.Font("Segoe Script", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionLabel.Location = new System.Drawing.Point(323, 605);
+            this.instructionLabel.Name = "instructionLabel";
+            this.instructionLabel.Size = new System.Drawing.Size(571, 95);
+            this.instructionLabel.TabIndex = 7;
+            this.instructionLabel.Text = "Space to select";
+            this.instructionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // CustomizationScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AdventureGameFinal.Properties.Resources.mainscreenbg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.instructionLabel);
             this.Controls.Add(this.daggersImage);
             this.Controls.Add(this.bowImage);
             this.Controls.Add(this.polearmImage);
@@ -137,5 +153,6 @@ namespace AdventureGameFinal.Screens
         private System.Windows.Forms.PictureBox bowImage;
         private System.Windows.Forms.PictureBox daggersImage;
         private System.Windows.Forms.Timer customScreenTimer;
+        private System.Windows.Forms.Label instructionLabel;
     }
 }

@@ -139,8 +139,8 @@
   <data name="editedpolearm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editedpolearm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="grass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grass2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="grass2__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grass2 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="greentree" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\greentree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

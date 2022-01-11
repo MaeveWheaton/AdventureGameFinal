@@ -16,6 +16,7 @@ namespace AdventureGameFinal.Screens
         List<PictureBox> weaponImages = new List<PictureBox>();
         Boolean rightArrowDown, leftArrowDown, spaceDown;
         int selectionState = 0;
+        int selection = 4;
         #endregion
 
         public CustomizationScreen()
@@ -50,7 +51,14 @@ namespace AdventureGameFinal.Screens
                     leftArrowDown = true;
                     break;
                 case (Keys.Space):
-                    spaceDown = true;
+                    if (selection == selectionState)
+                    {
+                        StartGame();
+                    }
+                    else
+                    {
+                        spaceDown = true;
+                    }
                     break;
                 case (Keys.Escape):
                     Application.Exit();
@@ -76,6 +84,15 @@ namespace AdventureGameFinal.Screens
 
         private void customScreenTimer_Tick(object sender, EventArgs e)
         {
+            if (selection == selectionState)
+            {
+                instructionLabel.Text = "Space to Start";
+            }
+            else
+            {
+                instructionLabel.Text = "Space to Select";
+            }
+
             //change selected weapon if right/left keys pressed,
             //save selection and begin game if space pressed
             switch (selectionState)
@@ -84,21 +101,14 @@ namespace AdventureGameFinal.Screens
                     #region Case 0
                     if (rightArrowDown) //change to next selection to the right
                     {
-                        //remove border from current selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.None;
-
-                        //change selection int
-                        selectionState = 1;
-
-                        //add border to new selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.Fixed3D;
+                        ChangeCurrentSelected(1);
 
                         rightArrowDown = false;
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        //player.weapon = "mainSword";
-                        StartGame();
+                        Form1.player.weapon = "mainSword";
+                        ChangeSelection();
                     }
                     #endregion
                     break;
@@ -106,34 +116,20 @@ namespace AdventureGameFinal.Screens
                     #region Case 1
                     if (rightArrowDown) //change to next selection to the right
                     {
-                        //remove border from current selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.None;
-
-                        //change selection int
-                        selectionState = 2;
-
-                        //add border to new selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.Fixed3D;
+                        ChangeCurrentSelected(2);
 
                         rightArrowDown = false;
                     }
                     if (leftArrowDown) //change to next selection to the left
                     {
-                        //remove border from current selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.None;
-
-                        //change selection int
-                        selectionState = 0;
-
-                        //add border to new selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.Fixed3D;
+                        ChangeCurrentSelected(0);
 
                         leftArrowDown = false;
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        //player.weapon = "mainPolearm";
-                        StartGame();
+                        Form1.player.weapon = "mainPolearm";
+                        ChangeSelection();
                     }
                     #endregion
                     break;
@@ -141,56 +137,35 @@ namespace AdventureGameFinal.Screens
                     #region Case 2
                     if (rightArrowDown) //change to next selection to the right
                     {
-                        //remove border from current selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.None;
-
-                        //change selection int
-                        selectionState = 3;
-
-                        //add border to new selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.Fixed3D;
+                        ChangeCurrentSelected(3);
 
                         rightArrowDown = false;
                     }
                     if (leftArrowDown) //change to next selection to the left
                     {
-                        //remove border from current selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.None;
-
-                        //change selection int
-                        selectionState = 1;
-
-                        //add border to new selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.Fixed3D;
+                        ChangeCurrentSelected(1);
 
                         leftArrowDown = false;
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        //player.weapon = "mainBow";
-                        StartGame();
+                        Form1.player.weapon = "mainBow";
+                        ChangeSelection();
                     }
                     #endregion
                     break;
-                case 3: //catalyst selected
+                case 3: //daggers selected
                     #region Case 3
                     if (leftArrowDown) //change to next selection to the left
                     {
-                        //remove border from current selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.None;
-
-                        //change selection int
-                        selectionState = 2;
-
-                        //add border to new selection
-                        weaponImages[selectionState].BorderStyle = BorderStyle.Fixed3D;
+                        ChangeCurrentSelected(2);
 
                         leftArrowDown = false;
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        //player.weapon = "mainCatalyst";
-                        StartGame();
+                        Form1.player.weapon = "mainDaggers";
+                        ChangeSelection();
                     }
                     #endregion
                     break;
@@ -214,6 +189,35 @@ namespace AdventureGameFinal.Screens
             spaceDown = false;
 
             ns.Focus();
+        }
+
+        void ChangeCurrentSelected(int state)
+        {
+            //remove border from current selection
+            weaponImages[selectionState].BorderStyle = BorderStyle.None;
+
+            //change selection int
+            selectionState = state;
+
+            //add border to new selection
+            weaponImages[selectionState].BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        void ChangeSelection()
+        {
+            try
+            {
+                weaponImages[selection].BackColor = Color.Transparent;
+                weaponImages[selectionState].BackColor = Color.White;
+                selection = selectionState;
+                spaceDown = false;
+            }
+            catch
+            {
+                weaponImages[selectionState].BackColor = Color.White;
+                selection = selectionState;
+                spaceDown = false;
+            }            
         }
     }
 }

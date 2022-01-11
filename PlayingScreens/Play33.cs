@@ -12,9 +12,65 @@ namespace AdventureGameFinal.PlayingScreens
 {
     public partial class Play33 : UserControl
     {
+        #region Global variables
+        Boolean upArrowDown, downArrowDown, rightArrowDown, leftArrowDown, spaceDown;
+        #endregion
+
         public Play33()
         {
             InitializeComponent();
+        }
+
+        private void Play33_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case (Keys.Up):
+                    upArrowDown = false;
+                    break;
+                case (Keys.Down):
+                    downArrowDown = false;
+                    break;
+                case (Keys.Right):
+                    rightArrowDown = false;
+                    break;
+                case (Keys.Left):
+                    leftArrowDown = false;
+                    break;
+                case (Keys.Space):
+                    spaceDown = false;
+                    break;
+            }
+        }
+
+        private void Play33_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case (Keys.Up):
+                    upArrowDown = true;
+                    break;
+                case (Keys.Down):
+                    downArrowDown = true;
+                    break;
+                case (Keys.Right):
+                    rightArrowDown = true;
+                    break;
+                case (Keys.Left):
+                    leftArrowDown = true;
+                    break;
+                case (Keys.Space):
+                    spaceDown = true;
+                    break;
+                case (Keys.Escape):
+                    Application.Exit();
+                    break;
+            }
+        }
+
+        private void gameTimer_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
