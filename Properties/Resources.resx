@@ -118,8 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bluetree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bluetree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bluetree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bluetree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bow_arrows" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bow_arrows.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="browntree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\browntree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="browntree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\browntree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="catalystspritesheetsingle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\catalystspritesheetsingle.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,19 +139,55 @@
   <data name="editedpolearm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editedpolearm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="long_sword" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\long_sword.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="grass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grass2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="greentree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\greentree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="greentree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\greentree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mainscreenbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mainscreenbg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="polearm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\polearm.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="redtree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\redtree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="redtree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\redtree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="set_daggers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\set_daggers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="throwing_knives" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\throwing_knives.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="smallHouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smallHouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snowbluetree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snowbluetree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snowbluetree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snowbluetree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snowbrowntree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snowbrowntree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snowbrowntree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snowbrowntree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snowgreentree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snowgreentree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snowgreentree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snowgreentree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snowredtree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snowredtree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snowredtree2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snowredtree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sword2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sword2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

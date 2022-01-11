@@ -57,7 +57,8 @@ namespace AdventureGameFinal.Screens
             // 
             // swordImage
             // 
-            this.swordImage.BackgroundImage = global::AdventureGameFinal.Properties.Resources.long_sword;
+            this.swordImage.BackColor = System.Drawing.Color.Transparent;
+            this.swordImage.BackgroundImage = global::AdventureGameFinal.Properties.Resources.sword2;
             this.swordImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.swordImage.Location = new System.Drawing.Point(157, 225);
             this.swordImage.Name = "swordImage";
