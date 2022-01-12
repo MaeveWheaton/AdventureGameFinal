@@ -32,6 +32,22 @@ namespace AdventureGameFinal.Classes
                 case "left":
                     x -= speed;
                     break;
+                case "leftup":
+                    x -= speed;
+                    y -= speed;
+                    break;
+                case "leftdown":
+                    x -= speed;
+                    y += speed;
+                    break;
+                case "rightup":
+                    x += speed;
+                    y -= speed;
+                    break;
+                case "rightdown":
+                    x += speed;
+                    y += speed;
+                    break;
             }
         }
     }

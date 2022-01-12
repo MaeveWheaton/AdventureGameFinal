@@ -58,6 +58,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlayingScreens\Play1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlayingScreens\Play1.Designer.cs">
+      <DependentUpon>Play1.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlayingScreens\Play33.cs">
       <SubType>UserControl</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -104,8 +110,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\PlayScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\PlayScreen.Designer.cs">
+      <DependentUpon>PlayScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayingScreens\Play1.resx">
+      <DependentUpon>Play1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayingScreens\Play33.resx">
       <DependentUpon>Play33.cs</DependentUpon>
@@ -138,6 +153,9 @@
     <EmbeddedResource Include="Screens\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PlayScreen.resx">
+      <DependentUpon>PlayScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -153,11 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mainscreenbg.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\catalystspritesheetsingle.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -326,6 +339,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\grassbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerTes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catalystspritesheetsingle %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catalystspritesheetsingle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerTest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smallHouse %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

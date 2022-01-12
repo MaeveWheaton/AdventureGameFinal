@@ -10,30 +10,24 @@ using System.Windows.Forms;
 
 namespace AdventureGameFinal.PlayingScreens
 {
-    public partial class Play33 : UserControl
+    public partial class Play1 : UserControl
     {
         #region Global variables
         Boolean upArrowDown, downArrowDown, rightArrowDown, leftArrowDown, spaceDown;
-        Point p = new Point();
-
-
         #endregion
 
-        
-
-        public Play33()
+        public Play1()
         {
             InitializeComponent();
         }
 
-
-        private void Play33_Load(object sender, EventArgs e)
+        private void Play1_Load(object sender, EventArgs e)
         {
             //start game timer
             gameTimer.Enabled = true;
         }
 
-        private void Play33_KeyUp(object sender, KeyEventArgs e)
+        private void Play1_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -55,7 +49,7 @@ namespace AdventureGameFinal.PlayingScreens
             }
         }
 
-        private void Play33_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        private void Play1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -82,33 +76,6 @@ namespace AdventureGameFinal.PlayingScreens
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            #region attempt diagonal movement
-                //if (upArrowDown && rightArrowDown)
-                //{
-                //    Form1.player.Move("rightup");
-                //    upArrowDown = false;
-                //    rightArrowDown = false;
-                //}
-                //else if (downArrowDown && rightArrowDown)
-                //{
-                //    Form1.player.Move("rightdown");
-                //    downArrowDown = false;
-                //    rightArrowDown = false;
-                //}
-                //else if (upArrowDown && leftArrowDown)
-                //{
-                //    Form1.player.Move("leftup");
-                //    upArrowDown = false;
-                //    leftArrowDown = false;
-                //}
-                //else if (downArrowDown && leftArrowDown)
-                //{
-                //    Form1.player.Move("leftdown");
-                //    downArrowDown = false;
-                //    leftArrowDown = false;
-                //}
-                #endregion
-            
             if (upArrowDown)
             {
                 Form1.player.Move("up");
@@ -130,7 +97,7 @@ namespace AdventureGameFinal.PlayingScreens
                 leftArrowDown = false;
             }
 
-            if(Form1.player.x < 0)
+            if (Form1.player.x < 0)
             {
 
             }
@@ -142,9 +109,17 @@ namespace AdventureGameFinal.PlayingScreens
             Refresh();
         }
 
-        private void Play33_Paint(object sender, PaintEventArgs e)
+        private void Play1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(Properties.Resources.smallHouse, 329, 18, 96, 144);
+            #region trees
+            for(int i = 50; i < 1050; i += 72)
+            {
+                e.Graphics.DrawImage(Properties.Resources.greentree, i, 20, 67, 120);
+                e.Graphics.DrawImage(Properties.Resources.greentree, i + 20, 40, 67, 120);
+            }
+            #endregion
+
+            e.Graphics.DrawImage(Properties.Resources.smallHouse, 700, 260, 96, 144);
             e.Graphics.DrawImage(Properties.Resources.playerTest, Form1.player.x, Form1.player.y, 28, 40);
         }
     }
