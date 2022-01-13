@@ -18,6 +18,8 @@ namespace AdventureGameFinal.Screens
         int screenLetter = 4;
         int screenNumber = 14;
         string currentScreen;
+        string conversation = "intro";
+        int conversationIndex = 0;
         #endregion
 
         public PlayScreen()
@@ -28,7 +30,7 @@ namespace AdventureGameFinal.Screens
         private void PlayScreen_Load(object sender, EventArgs e)
         {
             //start game timer
-            gameTimer.Enabled = true;
+            convoTimer.Enabled = true;
         }
 
         private void PlayScreen_KeyUp(object sender, KeyEventArgs e)
@@ -78,8 +80,52 @@ namespace AdventureGameFinal.Screens
             }
         }
 
+        private void convoTimer_Tick(object sender, EventArgs e)
+        {
+            switch (conversation)
+            {
+                case "intro":
+                    #region intro
+                    textLabel.Visible = true;
+                    characterImage.Visible = true;
+
+                    switch (conversationIndex)
+                    {
+                        case 0:
+                            textLabel.Text = "Welcome to Misaploya. You have just graduated from your training, " +
+                                "you are now free to roam the world and take on quests to make a name for yourself. \nSpace to continue";
+                            break;
+                        case 1:
+                            textLabel.Text = "You have been provided with a map of Misaploya to aid you in your travels. " +
+                                "Press space while travelling to look at it (not available yet). " +
+                                "It is suggested that you start small and work your way up to harder quests, visit the town to the southwest to find some smaller quests, " +
+                                "but by all means, if you think you can take on something harder there are three main quests marked on your map. \nSpace to continue";
+                            break;
+                        case 2:
+                            textLabel.Text = "If a quest should be too much for you, you will be brought back here to recover. Now off you go, good luck. \nSpace to start";
+                            break;
+                        case 3:
+                            conversationIndex = 0;
+                            textLabel.Visible = false;
+                            characterImage.Visible = false;
+                            convoTimer.Enabled = false;
+                            gameTimer.Enabled = true;
+                            break;
+                    }
+
+                    if (spaceDown)
+                    {
+                        conversationIndex++;
+                    }
+
+                    #endregion
+                    break;
+            }
+        }
+
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            #region player movement code
             if (upArrowDown)
             {
                 Form1.player.Move("up");
@@ -121,6 +167,8 @@ namespace AdventureGameFinal.Screens
                 screenNumber++;
                 Form1.player.y = 0 + (Form1.player.y - 700);
             }
+            #endregion
+
 
             Refresh();
         }
@@ -141,6 +189,7 @@ namespace AdventureGameFinal.Screens
 
                     e.Graphics.DrawImage(Properties.Resources.smallHouse, 700, 260, 96, 144);
                     break;
+
             }
 
             e.Graphics.DrawImage(Properties.Resources.playerTest, Form1.player.x, Form1.player.y, 28, 40);

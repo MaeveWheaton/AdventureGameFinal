@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bear_monster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bear_monster.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bluetree" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bluetree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,8 +139,41 @@
   <data name="catalystspritesheetsingle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\catalystspritesheetsingle.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="city_gates" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\city_gates.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="city_stairs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\city_stairs.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_forst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dark_forst.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dead_end" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dead_end.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dragon_treasure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dragon_treasure.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dungeon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dungeon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dungeon_open_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dungeon_open_door.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dying_forest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dying_forest.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="editedpolearm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editedpolearm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="evil_spirit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\evil_spirit.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="forest_edge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forest_edge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="forest_pond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forest_pond.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grass2__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\grass2 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +187,20 @@
   <data name="mainscreenbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mainscreenbg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="mountain_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mountain_door.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mountain_door_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mountain_door_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mountain_entrance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mountain_entrance.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="playerTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerTest.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="purified_spirit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\purified_spirit.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="redtree" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\redtree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -195,5 +243,23 @@
   </data>
   <data name="sword2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sword2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thorns" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thorns.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="throne_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\throne_door.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="throne_room" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\throne_room.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="treasure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\treasure.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tunnel_fork" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tunnel_fork.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tunnel_fork_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tunnel_fork_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
