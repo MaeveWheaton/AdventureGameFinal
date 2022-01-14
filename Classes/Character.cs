@@ -8,13 +8,10 @@ namespace AdventureGameFinal.Classes
 {
     public class Character
     {
-        public int x, y, speed, health, money;
-        public string weapon, image;
+        public int x, y, speed, health, money, weapon;
+        public string image;
+        public List<Weapon> weaponType;
 
-        public Character()
-        {
-
-        }
 
         public void Move(string direction)
         {
@@ -55,14 +52,17 @@ namespace AdventureGameFinal.Classes
     public class Player : Character 
     {
         public bool shielded;
+        Random rand = new Random();
+        int specialAttackAdd;
 
-        public Player(int _x, int _y, int _speed, int _health, int _money, string _weapon, bool _shielded, string _image)
+        public Player(int _x, int _y, int _speed, int _health, int _money, List<Weapon> _weaponType, int _weapon, bool _shielded, string _image)
         {
             x = _x;
             y = _y;
             speed = _speed;
             health = _health;
             money = _money;
+            weaponType = _weaponType;
             weapon = _weapon;
             shielded = _shielded;
             image = _image;
@@ -82,6 +82,10 @@ namespace AdventureGameFinal.Classes
                     shielded = true;
                     break;
                 case "specialAttack":
+                    specialAttackAdd = rand.Next(3, 9);
+                    monster.health -= weaponStrength + specialAttackAdd;
+                    break;
+                case "waiting":
                     break;
                 default:
                     break;
@@ -93,12 +97,12 @@ namespace AdventureGameFinal.Classes
     {
         string type;
 
-        public NPC(int _x, int _y, int _health, string _weapon, string _type, string _image)
+        public NPC(int _x, int _y, int _health, List<Weapon> _weaponType, string _type, string _image)
         {
             x = _x;
             y = _y;
             health = _health;
-            weapon = _weapon;
+            weaponType = _weaponType;
             type = _type;
             image = _image;
         }
@@ -109,7 +113,14 @@ namespace AdventureGameFinal.Classes
             //Else, reduce player health by weapon strength
             if (player.shielded)
             {
-                player.health -= weaponStrength - shieldStrength;
+                if(shieldStrength > weaponStrength)
+                {
+
+                }
+                else
+                {
+                    player.health -= weaponStrength - shieldStrength;
+                }
             }
             else
             {

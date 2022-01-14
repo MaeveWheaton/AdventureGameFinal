@@ -8,12 +8,24 @@ namespace AdventureGameFinal.Classes
 {
     public class Object
     {
-        string name;
+        public string name, image;
     }
 
-    class Weapon : Object
+    public class Weapon : Object
     {
+        public int strength;
 
+        public Weapon()
+        {
+
+        }
+
+        public Weapon(string _name, int _strength, string _image)
+        {
+            name = _name;
+            strength = _strength;
+            image = _image;
+        }
     }
 
     class Item : Object

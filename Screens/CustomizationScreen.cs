@@ -108,7 +108,7 @@ namespace AdventureGameFinal.Screens
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        Form1.player.weapon = "mainSword";
+                        Form1.player.weaponType = Form1.swords;
                         ChangeSelection();
                     }
                     #endregion
@@ -129,7 +129,7 @@ namespace AdventureGameFinal.Screens
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        Form1.player.weapon = "mainPolearm";
+                        Form1.player.weaponType = Form1.polearms;
                         ChangeSelection();
                     }
                     #endregion
@@ -150,7 +150,7 @@ namespace AdventureGameFinal.Screens
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        Form1.player.weapon = "mainBow";
+                        Form1.player.weaponType = Form1.bows;
                         ChangeSelection();
                     }
                     #endregion
@@ -165,7 +165,7 @@ namespace AdventureGameFinal.Screens
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        Form1.player.weapon = "mainDaggers";
+                        Form1.player.weaponType = Form1.daggers;
                         ChangeSelection();
                     }
                     #endregion
@@ -178,12 +178,13 @@ namespace AdventureGameFinal.Screens
         /// </summary>
         void StartGame()
         {
+            Form1.player.weapon = 0;
             customScreenTimer.Enabled = false;
 
             Form f = this.FindForm();
             f.Controls.Remove(this);
 
-            PlayingScreens.Play33 ns = new PlayingScreens.Play33();
+            Screens.PlayScreen ns = new Screens.PlayScreen();
             ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
             f.Controls.Add(ns);
 

@@ -29,19 +29,33 @@ namespace AdventureGameFinal.Screens
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.combatTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // combatTimer
+            // 
+            this.combatTimer.Interval = 50;
+            this.combatTimer.Tick += new System.EventHandler(this.combatTimer_Tick);
             // 
             // CombatScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "CombatScreen";
             this.Size = new System.Drawing.Size(1200, 700);
+            this.Load += new System.EventHandler(this.CombatScreen_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CombatScreen_Paint);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CombatScreen_KeyUp);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.CombatScreen_PreviewKeyDown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer combatTimer;
     }
 }
