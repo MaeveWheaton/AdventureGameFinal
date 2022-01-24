@@ -15,17 +15,19 @@ namespace AdventureGameFinal
     {
         #region Global variables
         public static Classes.Weapon playerWeapon = new Classes.Weapon();
-        public static Classes.NPC bear = new Classes.NPC(800, 400, 100, Form1.swords, "opponent", "bear_monster");
+        public static Classes.NPC bear = new Classes.NPC(800, 400, 100, "swords", Form1.swords, "opponent", "bear_monster");
         public static List<Classes.Weapon> swords = new List<Classes.Weapon>();
         public static List<Classes.Weapon> polearms = new List<Classes.Weapon>();
         public static List<Classes.Weapon> bows = new List<Classes.Weapon>();
         public static List<Classes.Weapon> daggers = new List<Classes.Weapon>();
         public static List<Classes.Weapon> catalysts = new List<Classes.Weapon>();
-        public static Classes.Player player = new Classes.Player(600, 350, 5, 100, 0, Form1.swords, 0, false, "playerTest");
+        public static Classes.Player player = new Classes.Player(600, 350, 5, 100, 0, "swords", Form1.swords, 0, false, "playerTest");
+        public static int screenLetter = 6;
+        public static int screenNumber = 16;
         string newName, newImage;
         int newStrength;
         #endregion
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -36,8 +38,7 @@ namespace AdventureGameFinal
         {
             // Start the program centred on the Main Screen
             //MainScreen ns = new MainScreen();
-            //Screens.PlayScreen ns = new Screens.PlayScreen();
-            Screens.CombatScreen ns = new Screens.CombatScreen();
+            Screens.PlayScreen ns = new Screens.PlayScreen();
             this.Controls.Add(ns);
 
             ns.Location = new Point((this.Width - ns.Width) / 2, (this.Height - ns.Height) / 2);
@@ -72,12 +73,17 @@ namespace AdventureGameFinal
                     LoadWeapons(reader, catalysts, 2);
 
                     break;
-                    
+
                 }
             }
 
-            player.weaponType = swords;
-            playerWeapon = player.weaponType[player.weapon];
+            player.weaponList = swords;
+            playerWeapon = player.weaponList[player.weapon];
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SavePlayerData();
         }
 
         void LoadWeapons(XmlReader reader, List<Classes.Weapon> weapons, int length)
@@ -97,6 +103,39 @@ namespace AdventureGameFinal
 
                 reader.ReadToNextSibling("name");
             }
+        }
+
+        void SavePlayerData()
+        {
+            //Open the XML file and place it in writer
+            XmlWriter writer = XmlWriter.Create("PlayerData.xml");
+
+            //Write the root element
+            writer.WriteStartElement("Players");
+
+            //Start an element
+            writer.WriteStartElement("Player1");
+
+            //int _x, int _y, int _speed, int _health, int _money, List<Weapon> _weaponType, int _weapon, bool _shielded, string _image
+            //Write sub-elements
+            writer.WriteElementString("x", Convert.ToString(player.x));
+            writer.WriteElementString("y", Convert.ToString(player.y));
+            writer.WriteElementString("health", Convert.ToString(player.health));
+            writer.WriteElementString("weaponType", Convert.ToString(player.weaponType));
+            writer.WriteElementString("weapon", Convert.ToString(player.weapon));
+            writer.WriteElementString("image", player.image);
+            writer.WriteElementString("screenLetter", Convert.ToString(screenLetter));
+            writer.WriteElementString("screenNumber", Convert.ToString(screenNumber));
+
+            // end the element
+            writer.WriteEndElement();
+
+
+            // end the root element
+            writer.WriteEndElement();
+
+            //Write the XML to file and close the writer
+            writer.Close();
         }
     }
 }

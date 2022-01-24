@@ -99,8 +99,12 @@ namespace AdventureGameFinal
                     }
                     #endregion
                     break;
-                case 1: //how to selected
+                case 1: //load selected
                     #region Case 1
+                    #endregion
+                    break;
+                case 2: //how to selected
+                    #region Case 2
                     if (upArrowDown) //change to start selected
                     {
                         selectionState = 0;
@@ -134,8 +138,8 @@ namespace AdventureGameFinal
                     }
                     #endregion
                     break;
-                case 2: //exit selected
-                    #region Case 2
+                case 3: //exit selected
+                    #region Case 3
                     if (upArrowDown) //change to how to selected
                     {
                         selectionState = 1;

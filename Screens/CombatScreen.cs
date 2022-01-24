@@ -177,6 +177,7 @@ namespace AdventureGameFinal.Screens
 
         void ReturnToGame()
         {
+            Form1.player.shielded = false;
             combatTimer.Enabled = false;
 
             Form f = this.FindForm();

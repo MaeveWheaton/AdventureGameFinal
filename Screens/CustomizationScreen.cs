@@ -108,7 +108,7 @@ namespace AdventureGameFinal.Screens
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        Form1.player.weaponType = Form1.swords;
+                        Form1.player.weaponList = Form1.swords;
                         ChangeSelection();
                     }
                     #endregion
@@ -129,7 +129,7 @@ namespace AdventureGameFinal.Screens
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        Form1.player.weaponType = Form1.polearms;
+                        Form1.player.weaponList = Form1.polearms;
                         ChangeSelection();
                     }
                     #endregion
@@ -150,7 +150,7 @@ namespace AdventureGameFinal.Screens
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        Form1.player.weaponType = Form1.bows;
+                        Form1.player.weaponList = Form1.bows;
                         ChangeSelection();
                     }
                     #endregion
@@ -165,7 +165,7 @@ namespace AdventureGameFinal.Screens
                     }
                     if (spaceDown) //save selection, change to play screen
                     {
-                        Form1.player.weaponType = Form1.daggers;
+                        Form1.player.weaponList = Form1.daggers;
                         ChangeSelection();
                     }
                     #endregion

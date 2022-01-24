@@ -9,8 +9,8 @@ namespace AdventureGameFinal.Classes
     public class Character
     {
         public int x, y, speed, health, money, weapon;
-        public string image;
-        public List<Weapon> weaponType;
+        public string image, weaponType;
+        public List<Weapon> weaponList;
 
 
         public void Move(string direction)
@@ -55,7 +55,7 @@ namespace AdventureGameFinal.Classes
         Random rand = new Random();
         int specialAttackAdd;
 
-        public Player(int _x, int _y, int _speed, int _health, int _money, List<Weapon> _weaponType, int _weapon, bool _shielded, string _image)
+        public Player(int _x, int _y, int _speed, int _health, int _money, string _weaponType, List<Weapon> _weaponList, int _weapon, bool _shielded, string _image)
         {
             x = _x;
             y = _y;
@@ -63,6 +63,7 @@ namespace AdventureGameFinal.Classes
             health = _health;
             money = _money;
             weaponType = _weaponType;
+            weaponList = _weaponList;
             weapon = _weapon;
             shielded = _shielded;
             image = _image;
@@ -97,12 +98,13 @@ namespace AdventureGameFinal.Classes
     {
         string type;
 
-        public NPC(int _x, int _y, int _health, List<Weapon> _weaponType, string _type, string _image)
+        public NPC(int _x, int _y, int _health, string _weaponType, List<Weapon> _weaponList, string _type, string _image)
         {
             x = _x;
             y = _y;
             health = _health;
             weaponType = _weaponType;
+            weaponList = _weaponList;
             type = _type;
             image = _image;
         }

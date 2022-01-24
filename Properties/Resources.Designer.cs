@@ -93,6 +93,16 @@ namespace AdventureGameFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap boat {
+            get {
+                object obj = ResourceManager.GetObject("boat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bow_arrows {
             get {
                 object obj = ResourceManager.GetObject("bow_arrows", resourceCulture);
@@ -466,6 +476,16 @@ namespace AdventureGameFinal.Properties {
         internal static System.Drawing.Bitmap snowredtree2 {
             get {
                 object obj = ResourceManager.GetObject("snowredtree2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stall {
+            get {
+                object obj = ResourceManager.GetObject("stall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
