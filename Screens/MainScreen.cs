@@ -77,7 +77,7 @@ namespace AdventureGameFinal
                     if (downArrowDown) //change to how to selected
                     {
                         selectionState = 1;
-                        howToLabel.BorderStyle = BorderStyle.Fixed3D;
+                        loadLabel.BorderStyle = BorderStyle.Fixed3D;
                         startLabel.BorderStyle = BorderStyle.None;
 
                         downArrowDown = false;
@@ -101,21 +101,52 @@ namespace AdventureGameFinal
                     break;
                 case 1: //load selected
                     #region Case 1
-                    #endregion
-                    break;
-                case 2: //how to selected
-                    #region Case 2
                     if (upArrowDown) //change to start selected
                     {
                         selectionState = 0;
                         startLabel.BorderStyle = BorderStyle.Fixed3D;
-                        howToLabel.BorderStyle = BorderStyle.None;
+                        loadLabel.BorderStyle = BorderStyle.None;
 
                         upArrowDown = false;
                     }
                     if (downArrowDown) //change to exit selected
                     {
                         selectionState = 2;
+                        howToLabel.BorderStyle = BorderStyle.Fixed3D;
+                        loadLabel.BorderStyle = BorderStyle.None;
+
+                        downArrowDown = false;
+                    }
+                    if (spaceDown) //change to play screen
+                    {
+                        mainScreenTimer.Enabled = false;
+
+                        Form f = this.FindForm();
+                        f.Controls.Remove(this);
+
+                        Screens.PlayScreen ns = new Screens.PlayScreen();
+                        ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
+                        f.Controls.Add(ns);
+
+                        spaceDown = false;
+
+                        ns.Focus();
+                    }
+                    #endregion
+                    break;
+                case 2: //how to selected
+                    #region Case 2
+                    if (upArrowDown) //change to start selected
+                    {
+                        selectionState = 1;
+                        loadLabel.BorderStyle = BorderStyle.Fixed3D;
+                        howToLabel.BorderStyle = BorderStyle.None;
+
+                        upArrowDown = false;
+                    }
+                    if (downArrowDown) //change to exit selected
+                    {
+                        selectionState = 3;
                         exitLabel.BorderStyle = BorderStyle.Fixed3D;
                         howToLabel.BorderStyle = BorderStyle.None;
 
@@ -142,7 +173,7 @@ namespace AdventureGameFinal
                     #region Case 3
                     if (upArrowDown) //change to how to selected
                     {
-                        selectionState = 1;
+                        selectionState = 2;
                         howToLabel.BorderStyle = BorderStyle.Fixed3D;
                         exitLabel.BorderStyle = BorderStyle.None;
 

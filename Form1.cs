@@ -14,16 +14,22 @@ namespace AdventureGameFinal
     public partial class Form1 : Form
     {
         #region Global variables
-        public static Classes.Weapon playerWeapon = new Classes.Weapon();
-        public static Classes.NPC bear = new Classes.NPC(800, 400, 100, "swords", Form1.swords, "opponent", "bear_monster");
+        public static Classes.NPC bear = new Classes.NPC(800, 400, 100, "swords", Form1.swords, "opponent", Properties.Resources.bear_monster);
+
+        public static List<Classes.Weapon> empty = new List<Classes.Weapon>();
         public static List<Classes.Weapon> swords = new List<Classes.Weapon>();
         public static List<Classes.Weapon> polearms = new List<Classes.Weapon>();
         public static List<Classes.Weapon> bows = new List<Classes.Weapon>();
         public static List<Classes.Weapon> daggers = new List<Classes.Weapon>();
         public static List<Classes.Weapon> catalysts = new List<Classes.Weapon>();
-        public static Classes.Player player = new Classes.Player(600, 350, 5, 100, 0, "swords", Form1.swords, 0, false, "playerTest");
-        public static int screenLetter = 6;
-        public static int screenNumber = 16;
+        System.Drawing.Bitmap[] weaponImages = { Properties.Resources.sword2 };
+
+        public static Classes.Player player = new Classes.Player(600, 350, 10, 100, 0, "", empty, 0, false, Properties.Resources.playerTest);
+        public static Classes.Weapon playerWeapon = new Classes.Weapon();
+        public static List<Classes.Item> playerItems = new List<Classes.Item>();
+
+        public static int screenLetter = 4;
+        public static int screenNumber = 14;
         string newName, newImage;
         int newStrength;
         #endregion
@@ -77,7 +83,8 @@ namespace AdventureGameFinal
                 }
             }
 
-            player.weaponList = swords;
+            empty.Add(new Classes.Weapon());
+            player.weaponList = empty;
             playerWeapon = player.weaponList[player.weapon];
         }
 
@@ -123,7 +130,7 @@ namespace AdventureGameFinal
             writer.WriteElementString("health", Convert.ToString(player.health));
             writer.WriteElementString("weaponType", Convert.ToString(player.weaponType));
             writer.WriteElementString("weapon", Convert.ToString(player.weapon));
-            writer.WriteElementString("image", player.image);
+            writer.WriteElementString("image", Convert.ToString(player.image));
             writer.WriteElementString("screenLetter", Convert.ToString(screenLetter));
             writer.WriteElementString("screenNumber", Convert.ToString(screenNumber));
 

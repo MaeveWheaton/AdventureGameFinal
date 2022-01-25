@@ -30,6 +30,7 @@ namespace AdventureGameFinal.Screens
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomizationScreen));
             this.titleLabel = new System.Windows.Forms.Label();
             this.swordImage = new System.Windows.Forms.PictureBox();
             this.polearmImage = new System.Windows.Forms.PictureBox();
@@ -80,11 +81,12 @@ namespace AdventureGameFinal.Screens
             // 
             // bowImage
             // 
-            this.bowImage.BackgroundImage = global::AdventureGameFinal.Properties.Resources.bow_arrows;
+            this.bowImage.BackColor = System.Drawing.Color.Transparent;
+            this.bowImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bowImage.BackgroundImage")));
             this.bowImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bowImage.Location = new System.Drawing.Point(627, 225);
+            this.bowImage.Location = new System.Drawing.Point(608, 225);
             this.bowImage.Name = "bowImage";
-            this.bowImage.Size = new System.Drawing.Size(196, 316);
+            this.bowImage.Size = new System.Drawing.Size(230, 316);
             this.bowImage.TabIndex = 5;
             this.bowImage.TabStop = false;
             // 

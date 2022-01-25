@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace AdventureGameFinal.Screens
 {
@@ -14,16 +15,20 @@ namespace AdventureGameFinal.Screens
     {
         #region Global variables
         Boolean upArrowDown, downArrowDown, rightArrowDown, leftArrowDown, spaceDown;
+        int previousX, previousY;
+
         string[] screenLetters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K" };
         int screenLetter = Form1.screenLetter;
         int screenNumber = Form1.screenNumber;
         string currentScreen;
+
         string conversation = "intro";
         int conversationIndex = 0;
+
         Point[] points = new Point[] { //path on 15E
-            new Point(0, 200), 
-            new Point(600, 700), 
-            new Point(425, 700), 
+            new Point(0, 200),
+            new Point(600, 700),
+            new Point(425, 700),
             new Point(0, 350) };
         Point[] points2 = new Point[] { //path on 16E
             new Point(600, 0),
@@ -34,6 +39,11 @@ namespace AdventureGameFinal.Screens
             new Point(0, 400),
             new Point(100, 600),
             new Point(0, 600)};
+
+        List<Classes.ScreenObject> screenObjects = new List<Classes.ScreenObject>();
+        System.Drawing.Bitmap[] images = { Properties.Resources.greentree, Properties.Resources.smallHouse, Properties.Resources.stall};
+        int newX, newY, newWidth, newLength, newImage;
+
         SolidBrush pathBrush = new SolidBrush(Color.Beige);
         SolidBrush waterBrush = new SolidBrush(Color.DeepSkyBlue);
         #endregion
@@ -47,6 +57,7 @@ namespace AdventureGameFinal.Screens
         {
             //start game timer
             //convoTimer.Enabled = true;
+            LoadScreen();
             gameTimer.Enabled = true;
         }
 
@@ -142,52 +153,68 @@ namespace AdventureGameFinal.Screens
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            #region player movement code
-            if(upArrowDown & rightArrowDown)
-            {
-                Form1.player.x += 5;
-                Form1.player.y -= 5;
-            }
+            previousX = Form1.player.x;
+            previousY = Form1.player.y;
+
+            #region player movement
+            //move at key press
             if (upArrowDown)
             {
                 Form1.player.Move("up");
                 upArrowDown = false;
             }
-            else if (downArrowDown)
+            if (downArrowDown)
             {
                 Form1.player.Move("down");
                 downArrowDown = false;
             }
-            else if (rightArrowDown)
+            if (rightArrowDown)
             {
                 Form1.player.Move("right");
                 rightArrowDown = false;
             }
-            else if (leftArrowDown)
+            if (leftArrowDown)
             {
                 Form1.player.Move("left");
                 leftArrowDown = false;
             }
+            #endregion
 
+            foreach(Classes.ScreenObject so in screenObjects)
+            {
+                if(Form1.player.x + 28 > so.x && Form1.player.x < so.x + so.width 
+                    && Form1.player.y + 40 > so.y && Form1.player.y < so.y + so.length - 40)
+                {
+                    Form1.player.x = previousX;
+                    Form1.player.y = previousY;
+                }
+            }
+
+            #region screen change
+            //check for change of screen
             if (Form1.player.x < 0)
             {
                 screenLetter--;
                 Form1.player.x = 1200 + Form1.player.x;
+                LoadScreen();
             }
             else if (Form1.player.x > 1200)
             {
                 screenLetter++;
                 Form1.player.x = 0 + (Form1.player.x - 1200);
+                LoadScreen();
             }
             else if (Form1.player.y < 0)
             {
                 screenNumber--;
                 Form1.player.y = 700 + Form1.player.y;
+                LoadScreen();
             }
             else if (Form1.player.y > 700)
             {
                 screenNumber++;
                 Form1.player.y = 0 + (Form1.player.y - 700);
+                LoadScreen();
             }
             #endregion
 
@@ -195,43 +222,41 @@ namespace AdventureGameFinal.Screens
         }
 
         private void PlayScreen_Paint(object sender, PaintEventArgs e)
-        {
-            currentScreen = screenNumber + screenLetters[screenLetter];
+        {            
+            //draw polygon/rectangle screen objects - easier to just draw since I don't have good pictures
+            #region current screen switch
             switch (currentScreen)
             {
-                case "14E":
-                    #region trees
-                    for (int i = 50; i < 1050; i += 72)
-                    {
-                        e.Graphics.DrawImage(Properties.Resources.greentree, i, 20, 67, 120);
-                        e.Graphics.DrawImage(Properties.Resources.greentree, i + 20, 40, 67, 120);
-                    }
-                    #endregion
-
-                    e.Graphics.DrawImage(Properties.Resources.smallHouse, 700, 260, 96, 144);
+                case "14E": //start cabin
+                    //loaded
                     break;
                 case "15E":
+                    //path
                     e.Graphics.FillPolygon(pathBrush, points);
                     break;
                 case "16E":
+                    //path
                     e.Graphics.FillPolygon(pathBrush, points2);
                     break;
                 case "16F": //market
+                    #region 16F
                     //paths
                     e.Graphics.FillRectangle(pathBrush, 0, 275, 1200, 100); //main road
                     e.Graphics.FillRectangle(pathBrush, 620, 650, 75, 50); //middledown
                     e.Graphics.FillRectangle(pathBrush, 400, 50, 700, 600); //market
 
                     //buildings
-                    e.Graphics.DrawImage(Properties.Resources.smallHouse, 20, 400, 96, 144); //inn
-                    e.Graphics.DrawImage(Properties.Resources.smallHouse, 220, 400, 96, 144); //stable
+                    //0 - inn
+                    //1 - stable
 
                     //stalls
                     e.Graphics.DrawImage(Properties.Resources.stall, 470, 60, 86, 88); //clothes
                     e.Graphics.DrawImage(Properties.Resources.stall, 670, 60, 86, 88); //food
                     e.Graphics.DrawImage(Properties.Resources.stall, 870, 60, 86, 88); //armoury
+                    #endregion
                     break;
                 case "17F": //harbour
+                    #region 17F
                     //water
                     e.Graphics.FillRectangle(waterBrush, 0, 400, 1200, 300); //water
 
@@ -245,15 +270,16 @@ namespace AdventureGameFinal.Screens
                     //boat
                     e.Graphics.DrawImage(Properties.Resources.boat, 500, 420, 115, 261);
 
-
                     //buildings
                     for (int i = 0; i <= 400; i += 200) //top right
                     {
                         e.Graphics.DrawImage(Properties.Resources.smallHouse, 20 + i, 50, 96, 144);
                     }
                     e.Graphics.DrawImage(Properties.Resources.smallHouse, 820, 50, 96, 144);
+                    #endregion
                     break;
                 case "16G": //big house
+                    #region 16G
                     //paths
                     e.Graphics.FillRectangle(pathBrush, 0, 275, 620, 100); //main
                     e.Graphics.FillRectangle(pathBrush, 620, 275, 75, 425); //middle up
@@ -264,8 +290,10 @@ namespace AdventureGameFinal.Screens
                         e.Graphics.DrawImage(Properties.Resources.smallHouse, 20 + i, 125, 96, 144);
                     }
                     e.Graphics.DrawImage(Properties.Resources.smallHouse, 700, 50, 384, 576);
+                    #endregion
                     break;
                 case "17G": //houses
+                    #region 17G
                     //water
                     e.Graphics.FillPolygon(waterBrush, points3);
                     e.Graphics.FillRectangle(waterBrush, 0, 600, 1200, 100);
@@ -295,10 +323,57 @@ namespace AdventureGameFinal.Screens
                     {
                         e.Graphics.DrawImage(Properties.Resources.smallHouse, 720 + i, 275, 96, 144);
                     }
+                    #endregion
                     break;
             }
+            #endregion
 
-            e.Graphics.DrawImage(Properties.Resources.playerTest, Form1.player.x, Form1.player.y, 28, 40);
+            //draw image screen objects
+            foreach (Classes.ScreenObject so in screenObjects)
+            {
+                e.Graphics.DrawImage(so.image, so.x, so.y, so.width, so.length);
+            }
+
+            e.Graphics.DrawImage(Form1.player.image, Form1.player.x, Form1.player.y, 28, 40);
+        }
+
+        void LoadScreen()
+        {
+            screenObjects.Clear();
+
+            currentScreen = screenNumber + screenLetters[screenLetter];
+            XmlReader reader = XmlReader.Create("GameData.xml");
+
+            reader.ReadToFollowing("screen" + currentScreen);
+
+            while (reader.Read())
+            {
+                if(reader.NodeType == XmlNodeType.Text)
+                {
+                    newImage = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("x");
+                    newX = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("y");
+                    newY = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("width");
+                    newWidth = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("length");
+                    newLength = Convert.ToInt32(reader.ReadString());
+
+                    Classes.ScreenObject so = new Classes.ScreenObject(images[newImage], newX, newY, newWidth, newLength);
+                    screenObjects.Add(so);
+                }
+
+                //loading all objects, how do I make it stop??
+                //if (reader.)
+                //{
+                //    break;
+                //}
+            }
         }
     }
 }

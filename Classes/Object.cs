@@ -28,8 +28,15 @@ namespace AdventureGameFinal.Classes
         }
     }
 
-    class Item : Object
+    public class Item : Object
     {
+        public int hpGain;
+        public System.Drawing.Bitmap image;
 
+        public Item(int _hpGain, System.Drawing.Bitmap _image)
+        {
+            hpGain = _hpGain;
+            image = _image;
+        }
     }
 }

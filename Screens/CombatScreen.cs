@@ -171,8 +171,8 @@ namespace AdventureGameFinal.Screens
             e.Graphics.FillPie(whiteBrush, 50, 500, 100, 100, 0, 120 * specialAttackCounter);
 
             //draw characters
-            e.Graphics.DrawImage(Properties.Resources.playerTest, 250, 400, 28 * 4, 40 * 4);
-            e.Graphics.DrawImage(Properties.Resources.bear_monster, 900, 400, 28 * 4, 40 * 4);
+            e.Graphics.DrawImage(Form1.player.image, 250, 400, 28 * 4, 40 * 4);
+            e.Graphics.DrawImage(Form1.bear.image, 900, 400, 28 * 4, 40 * 4);
         }
 
         void ReturnToGame()
