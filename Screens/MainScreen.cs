@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace AdventureGameFinal
 {
@@ -74,7 +75,7 @@ namespace AdventureGameFinal
             {
                 case 0: //start selected
                     #region Case 0
-                    if (downArrowDown) //change to how to selected
+                    if (downArrowDown) //change to load selected
                     {
                         selectionState = 1;
                         loadLabel.BorderStyle = BorderStyle.Fixed3D;
@@ -85,6 +86,7 @@ namespace AdventureGameFinal
                     if (spaceDown) //change to customization screen
                     {
                         mainScreenTimer.Enabled = false;
+                        Form1.loaded = false;
 
                         Form f = this.FindForm();
                         f.Controls.Remove(this);
@@ -109,7 +111,7 @@ namespace AdventureGameFinal
 
                         upArrowDown = false;
                     }
-                    if (downArrowDown) //change to exit selected
+                    if (downArrowDown) //change to how to selected
                     {
                         selectionState = 2;
                         howToLabel.BorderStyle = BorderStyle.Fixed3D;
@@ -120,6 +122,9 @@ namespace AdventureGameFinal
                     if (spaceDown) //change to play screen
                     {
                         mainScreenTimer.Enabled = false;
+                        Form1.loaded = true;
+
+                        LoadPlayerData();
 
                         Form f = this.FindForm();
                         f.Controls.Remove(this);
@@ -136,7 +141,7 @@ namespace AdventureGameFinal
                     break;
                 case 2: //how to selected
                     #region Case 2
-                    if (upArrowDown) //change to start selected
+                    if (upArrowDown) //change to load selected
                     {
                         selectionState = 1;
                         loadLabel.BorderStyle = BorderStyle.Fixed3D;
@@ -186,6 +191,57 @@ namespace AdventureGameFinal
                     #endregion
                     break;
             }
+        }
+
+        void LoadPlayerData()
+        {
+            XmlReader reader = XmlReader.Create("PlayerData.xml");
+
+            while (reader.Read())
+            {
+                if(reader.NodeType == XmlNodeType.Text)
+                {
+                    Form1.player.x = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("y");
+                    Form1.player.y = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("weaponType");
+                    Form1.player.weaponType = reader.ReadString();
+
+                    reader.ReadToNextSibling("weapon");
+                    Form1.player.weapon = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("screenLetter");
+                    Form1.screenLetter = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("screenNumber");
+                    Form1.screenNumber = Convert.ToInt32(reader.ReadString());
+                }
+            }
+
+            reader.Close();
+
+            switch (Form1.player.weaponType)
+            {
+                case "sword":
+                    Form1.player.weaponList = Form1.swords;
+                    break;
+                case "polearm":
+                    Form1.player.weaponList = Form1.polearms;
+                    break;
+                case "bow":
+                    Form1.player.weaponList = Form1.bows;
+                    break;
+                case "daggers":
+                    Form1.player.weaponList = Form1.daggers;
+                    break;
+                case "catalyst":
+                    Form1.player.weaponList = Form1.catalysts;
+                    break;
+            }
+
+            Form1.playerWeapon = Form1.player.weaponList[Form1.player.weapon];
         }
     }
 }

@@ -202,6 +202,9 @@
   <data name="mountain_entrance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mountain_entrance.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="oldmanred1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\oldmanred1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="playerTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerTest.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -261,6 +264,9 @@
   </data>
   <data name="throne_room" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\throne_room.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trainingdummy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trainingdummy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="treasure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\treasure.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

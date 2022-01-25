@@ -61,7 +61,18 @@ namespace AdventureGameFinal.Screens
                     }
                     break;
                 case (Keys.Escape):
-                    Application.Exit();
+                    customScreenTimer.Enabled = false;
+
+                    Form f = this.FindForm();
+                    f.Controls.Remove(this);
+
+                    MainScreen ns = new MainScreen();
+                    ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
+                    f.Controls.Add(ns);
+
+                    spaceDown = false;
+
+                    ns.Focus();
                     break;
             }
         }
@@ -109,6 +120,7 @@ namespace AdventureGameFinal.Screens
                     if (spaceDown) //save selection, change to play screen
                     {
                         Form1.player.weaponList = Form1.swords;
+                        Form1.player.weaponType = "sword";
                         ChangeSelection();
                     }
                     #endregion
@@ -130,6 +142,7 @@ namespace AdventureGameFinal.Screens
                     if (spaceDown) //save selection, change to play screen
                     {
                         Form1.player.weaponList = Form1.polearms;
+                        Form1.player.weaponType = "polearm";
                         ChangeSelection();
                     }
                     #endregion
@@ -151,6 +164,7 @@ namespace AdventureGameFinal.Screens
                     if (spaceDown) //save selection, change to play screen
                     {
                         Form1.player.weaponList = Form1.bows;
+                        Form1.player.weaponType = "bow";
                         ChangeSelection();
                     }
                     #endregion
@@ -166,6 +180,7 @@ namespace AdventureGameFinal.Screens
                     if (spaceDown) //save selection, change to play screen
                     {
                         Form1.player.weaponList = Form1.daggers;
+                        Form1.player.weaponType = "daggers";
                         ChangeSelection();
                     }
                     #endregion

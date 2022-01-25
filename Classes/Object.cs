@@ -8,7 +8,7 @@ namespace AdventureGameFinal.Classes
 {
     public class Object
     {
-        public string name, image;
+        public string name, image, type;
     }
 
     public class Weapon : Object
@@ -20,8 +20,9 @@ namespace AdventureGameFinal.Classes
 
         }
 
-        public Weapon(string _name, int _strength, string _image)
+        public Weapon(string _name, string _type, int _strength, string _image)
         {
+            type = _type;
             name = _name;
             strength = _strength;
             image = _image;

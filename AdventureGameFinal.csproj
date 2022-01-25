@@ -337,11 +337,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\playerTes.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\catalystspritesheetsingle %281%29.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -478,6 +473,12 @@
     <Content Include="PlayerData.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\trainingdummy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\oldmanred1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\bowarrows.png" />
     <None Include="Resources\boat.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -14,17 +14,21 @@ namespace AdventureGameFinal.Screens
     public partial class PlayScreen : UserControl
     {
         #region Global variables
+        //player movement vaiables
         Boolean upArrowDown, downArrowDown, rightArrowDown, leftArrowDown, spaceDown;
         int previousX, previousY;
 
+        //screen variables
         string[] screenLetters = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K" };
         int screenLetter = Form1.screenLetter;
         int screenNumber = Form1.screenNumber;
         string currentScreen;
 
+        //conversation variables
         string conversation = "intro";
         int conversationIndex = 0;
 
+        //point arrays for drawing polygons
         Point[] points = new Point[] { //path on 15E
             new Point(0, 200),
             new Point(600, 700),
@@ -40,12 +44,15 @@ namespace AdventureGameFinal.Screens
             new Point(100, 600),
             new Point(0, 600)};
 
-        List<Classes.ScreenObject> screenObjects = new List<Classes.ScreenObject>();
-        System.Drawing.Bitmap[] images = { Properties.Resources.greentree, Properties.Resources.smallHouse, Properties.Resources.stall};
-        int newX, newY, newWidth, newLength, newImage;
-
+        //brushes for paths and water
         SolidBrush pathBrush = new SolidBrush(Color.Beige);
         SolidBrush waterBrush = new SolidBrush(Color.DeepSkyBlue);
+
+        //screen object list and variables
+        List<Classes.ScreenObject> screenObjects = new List<Classes.ScreenObject>();
+        System.Drawing.Bitmap[] images = { Properties.Resources.greentree, Properties.Resources.smallHouse, Properties.Resources.stall };
+        int newX, newY, newWidth, newLength, newImage;
+
         #endregion
 
         public PlayScreen()
@@ -55,10 +62,18 @@ namespace AdventureGameFinal.Screens
 
         private void PlayScreen_Load(object sender, EventArgs e)
         {
-            //start game timer
-            //convoTimer.Enabled = true;
+            if (Form1.loaded)
+            {
+                //start game timer
+                gameTimer.Enabled = true;
+            }
+            else
+            {
+                //start introduction
+                convoTimer.Enabled = true;
+            }
+
             LoadScreen();
-            gameTimer.Enabled = true;
         }
 
         private void PlayScreen_KeyUp(object sender, KeyEventArgs e)
@@ -115,13 +130,41 @@ namespace AdventureGameFinal.Screens
                 case "intro":
                     #region intro
                     textLabel.Visible = true;
+                    characterImage.Image = Form1.bartholomewI.image;
                     characterImage.Visible = true;
 
                     switch (conversationIndex)
                     {
                         case 0:
-                            textLabel.Text = "Welcome to Misaploya. You have just graduated from your training, " +
-                                "you are now free to roam the world and take on quests to make a name for yourself. \nSpace to continue";
+                            textLabel.Text = "Good morning student. You have reached your graduation from your training, " +
+                                "To show that you are ready to explore on your own, go over to the dummy and defeat it\nSpace to continue";
+                            break;
+                        case 1:
+                            textLabel.Text = "Remember, B to attack, N to use your shield, and M to use your special attack\nSpace to continue";
+                            break;
+                        case 2:
+                            conversationIndex = 0;
+                            conversation = "graduation";
+                            textLabel.Visible = false;
+                            characterImage.Visible = false;
+                            convoTimer.Enabled = false;
+                            gameTimer.Enabled = true;
+                            break;
+                    }
+
+                    if (spaceDown)
+                    {
+                        conversationIndex++;
+                    }
+                    #endregion
+                    break;
+                case "graduation":
+                    #region graduation
+                    switch (conversationIndex)
+                    {
+                        case 0:
+                            textLabel.Text = "Congradulations. You have now graduated from your training, " +
+                                "you are now free to roam Misaploya and take on quests to make a name for yourself. \nSpace to continue";
                             break;
                         case 1:
                             textLabel.Text = "You have been provided with a map of Misaploya to aid you in your travels. " +
@@ -145,7 +188,6 @@ namespace AdventureGameFinal.Screens
                     {
                         conversationIndex++;
                     }
-
                     #endregion
                     break;
             }
@@ -153,9 +195,11 @@ namespace AdventureGameFinal.Screens
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            //save previous position for resetting
             previousX = Form1.player.x;
             previousY = Form1.player.y;
 
+            //move player if key pressed
             #region player movement
             //move at key press
             if (upArrowDown)
@@ -180,9 +224,10 @@ namespace AdventureGameFinal.Screens
             }
             #endregion
 
-            foreach(Classes.ScreenObject so in screenObjects)
+            //reset player position in colliding with screen object
+            foreach (Classes.ScreenObject so in screenObjects)
             {
-                if(Form1.player.x + 28 > so.x && Form1.player.x < so.x + so.width 
+                if (Form1.player.x + 28 > so.x && Form1.player.x < so.x + so.width
                     && Form1.player.y + 40 > so.y && Form1.player.y < so.y + so.length - 40)
                 {
                     Form1.player.x = previousX;
@@ -190,6 +235,41 @@ namespace AdventureGameFinal.Screens
                 }
             }
 
+            //check for collision with NPC, if true initiate event
+            switch (currentScreen)
+            {
+                case "14E": //start cabin
+                    //dummy
+                    //e.Graphics.DrawImage(Form1.dummy.image, Form1.dummy.x, Form1.dummy.y, 59, 67);
+                    if(Form1.player.x + 28 > Form1.dummy.x && Form1.player.x < Form1.dummy.x + 59
+                    && Form1.player.y + 40 > Form1.dummy.y && Form1.player.y < Form1.dummy.y + 67 - 40)
+                    {
+                        gameTimer.Enabled = false;
+
+                        Form f = this.FindForm();
+                        f.Controls.Remove(this);
+
+                        Screens.CombatScreen ns = new Screens.CombatScreen();
+                        ns.Location = new Point((f.Width - ns.Width) / 2, (f.Height - ns.Height) / 2);
+                        f.Controls.Add(ns);
+
+                        ns.Focus();
+                    }
+
+                    //martholomew I
+                    //e.Graphics.DrawImage(Form1.bartholomewI.image, Form1.bartholomewI.x, Form1.bartholomewI.y, 32, 32);
+                    if (Form1.player.x + 28 > Form1.bartholomewI.x && Form1.player.x < Form1.bartholomewI.x + 32
+                    && Form1.player.y + 40 > Form1.bartholomewI.y && Form1.player.y < Form1.bartholomewI.y + 32 - 40)
+                    {
+                        gameTimer.Enabled = false;
+                        conversation = "graduation";
+                        convoTimer.Enabled = true;
+                    }
+                    break;
+            }
+
+            //change screen number/letter when player touches outside of screen
+            //set player position to opposite side for continuous movement
             #region screen change
             //check for change of screen
             if (Form1.player.x < 0)
@@ -222,7 +302,7 @@ namespace AdventureGameFinal.Screens
         }
 
         private void PlayScreen_Paint(object sender, PaintEventArgs e)
-        {            
+        {
             //draw polygon/rectangle screen objects - easier to just draw since I don't have good pictures
             #region current screen switch
             switch (currentScreen)
@@ -334,9 +414,25 @@ namespace AdventureGameFinal.Screens
                 e.Graphics.DrawImage(so.image, so.x, so.y, so.width, so.length);
             }
 
+            //draw npcs if on current screen
+            switch (currentScreen)
+            {
+                case "14E": //start cabin
+                    //dummy
+                    e.Graphics.DrawImage(Form1.dummy.image, Form1.dummy.x, Form1.dummy.y, 59, 67);
+
+                    //martholomew I
+                    e.Graphics.DrawImage(Form1.bartholomewI.image, Form1.bartholomewI.x, Form1.bartholomewI.y, 32, 32);
+                    break;
+            }
+
+            //draw player
             e.Graphics.DrawImage(Form1.player.image, Form1.player.x, Form1.player.y, 28, 40);
         }
 
+        /// <summary>
+        /// Loads in screen objects for current screen
+        /// </summary>
         void LoadScreen()
         {
             screenObjects.Clear();
@@ -345,34 +441,37 @@ namespace AdventureGameFinal.Screens
             XmlReader reader = XmlReader.Create("GameData.xml");
 
             reader.ReadToFollowing("screen" + currentScreen);
+            int numberOfObjects = Convert.ToInt32(reader.GetAttribute("value"));
 
-            while (reader.Read())
+            reader.ReadToDescendant("image");
+
+            for (int num = 0; num < numberOfObjects; num++)
             {
-                if(reader.NodeType == XmlNodeType.Text)
+                while (reader.Read())
                 {
-                    newImage = Convert.ToInt32(reader.ReadString());
+                    if (reader.NodeType == XmlNodeType.Text)
+                    {
+                        newImage = Convert.ToInt32(reader.ReadString());
 
-                    reader.ReadToNextSibling("x");
-                    newX = Convert.ToInt32(reader.ReadString());
+                        reader.ReadToNextSibling("x");
+                        newX = Convert.ToInt32(reader.ReadString());
 
-                    reader.ReadToNextSibling("y");
-                    newY = Convert.ToInt32(reader.ReadString());
+                        reader.ReadToNextSibling("y");
+                        newY = Convert.ToInt32(reader.ReadString());
 
-                    reader.ReadToNextSibling("width");
-                    newWidth = Convert.ToInt32(reader.ReadString());
+                        reader.ReadToNextSibling("width");
+                        newWidth = Convert.ToInt32(reader.ReadString());
 
-                    reader.ReadToNextSibling("length");
-                    newLength = Convert.ToInt32(reader.ReadString());
+                        reader.ReadToNextSibling("length");
+                        newLength = Convert.ToInt32(reader.ReadString());
 
-                    Classes.ScreenObject so = new Classes.ScreenObject(images[newImage], newX, newY, newWidth, newLength);
-                    screenObjects.Add(so);
+                        Classes.ScreenObject so = new Classes.ScreenObject(images[newImage], newX, newY, newWidth, newLength);
+                        screenObjects.Add(so);
+                        reader.ReadToNextSibling("image");
+                    }
+
+                    break;
                 }
-
-                //loading all objects, how do I make it stop??
-                //if (reader.)
-                //{
-                //    break;
-                //}
             }
         }
     }
