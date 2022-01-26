@@ -26,6 +26,9 @@ namespace AdventureGameFinal.Screens
 
         private void InstructionScreen_Load(object sender, EventArgs e)
         {
+            //start timer
+            howToTimer.Enabled = true;
+
             //open music file
             music = new System.Windows.Media.MediaPlayer();
             music.Open(new Uri(Application.StartupPath + "/Resources/soft_music.mp3"));
@@ -37,6 +40,9 @@ namespace AdventureGameFinal.Screens
             switch (e.KeyCode)
             {
                 case (Keys.Space):
+                    //stop timer
+                    howToTimer.Enabled = false;
+
                     //stop music
                     music.Stop();
 

@@ -42,9 +42,10 @@ namespace AdventureGameFinal.Screens
             this.instructionsLabel.AutoSize = true;
             this.instructionsLabel.BackColor = System.Drawing.Color.Transparent;
             this.instructionsLabel.Font = new System.Drawing.Font("Segoe Script", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionsLabel.Location = new System.Drawing.Point(-9, 150);
+            this.instructionsLabel.Location = new System.Drawing.Point(-8, 65);
+            this.instructionsLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(1084, 540);
+            this.instructionsLabel.Size = new System.Drawing.Size(457, 220);
             this.instructionsLabel.TabIndex = 0;
             this.instructionsLabel.Text = resources.GetString("instructionsLabel.Text");
             this.instructionsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -54,9 +55,10 @@ namespace AdventureGameFinal.Screens
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Segoe Script", 20.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(336, 51);
+            this.titleLabel.Location = new System.Drawing.Point(126, 21);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(503, 113);
+            this.titleLabel.Size = new System.Drawing.Size(201, 44);
             this.titleLabel.TabIndex = 1;
             this.titleLabel.Text = "How To Play";
             // 
@@ -67,9 +69,10 @@ namespace AdventureGameFinal.Screens
             this.returnLabel.BackColor = System.Drawing.Color.Transparent;
             this.returnLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.returnLabel.Font = new System.Drawing.Font("Segoe Script", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnLabel.Location = new System.Drawing.Point(3, 569);
+            this.returnLabel.Location = new System.Drawing.Point(1, 239);
+            this.returnLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.returnLabel.Name = "returnLabel";
-            this.returnLabel.Size = new System.Drawing.Size(360, 95);
+            this.returnLabel.Size = new System.Drawing.Size(135, 40);
             this.returnLabel.TabIndex = 5;
             this.returnLabel.Text = "Press space to\r\nreturn to menu";
             this.returnLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -81,7 +84,7 @@ namespace AdventureGameFinal.Screens
             // 
             // InstructionScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AdventureGameFinal.Properties.Resources.mainscreenbg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -89,8 +92,9 @@ namespace AdventureGameFinal.Screens
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.instructionsLabel);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "InstructionScreen";
-            this.Size = new System.Drawing.Size(1200, 700);
+            this.Size = new System.Drawing.Size(450, 294);
             this.Load += new System.EventHandler(this.InstructionScreen_Load);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.InstructionScreen_PreviewKeyDown);
             this.ResumeLayout(false);

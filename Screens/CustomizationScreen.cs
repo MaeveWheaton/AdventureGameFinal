@@ -17,6 +17,11 @@ namespace AdventureGameFinal.Screens
         Boolean rightArrowDown, leftArrowDown, spaceDown;
         int selectionState = 0;
         int selection = 4;
+
+        //music variables
+        System.Windows.Media.MediaPlayer music;
+        int musicCounter = 10000;
+        int musicLoop = 2450;
         #endregion
 
         public CustomizationScreen()
@@ -81,6 +86,11 @@ namespace AdventureGameFinal.Screens
         {
             //start tick loop
             customScreenTimer.Enabled = true;
+
+            //open music file
+            music = new System.Windows.Media.MediaPlayer();
+            music.Open(new Uri(Application.StartupPath + "/Resources/soft_music.mp3"));
+            music.Play();
 
             //set up wepons list
             weaponImages.Add(swordImage);
@@ -209,6 +219,10 @@ namespace AdventureGameFinal.Screens
             ns.Focus();
         }
 
+        /// <summary>
+        /// Change borders to indicate current selected
+        /// </summary>
+        /// <param name="state">new selection</param>
         void ChangeCurrentSelected(int state)
         {
             //remove border from current selection
@@ -221,6 +235,9 @@ namespace AdventureGameFinal.Screens
             weaponImages[selectionState].BorderStyle = BorderStyle.Fixed3D;
         }
 
+        /// <summary>
+        /// Changes backgrounds to indicate weapon selection
+        /// </summary>
         void ChangeSelection()
         {
             try
@@ -236,6 +253,21 @@ namespace AdventureGameFinal.Screens
                 selection = selectionState;
                 spaceDown = false;
             }            
+        }
+
+        /// <summary>
+        /// Makes sure music runs continuously
+        /// </summary>
+        void MusicLoop()
+        {
+            musicCounter++;
+
+            if (musicCounter > musicLoop)
+            {
+                music.Stop();
+                music.Play();
+                musicCounter = 0;
+            }
         }
     }
 }

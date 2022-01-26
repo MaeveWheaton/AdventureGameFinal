@@ -131,9 +131,22 @@ namespace AdventureGameFinal.Screens
                     break;
                 case (Keys.Space):
                     spaceDown = true;
+                    if (gameTimer.Enabled)
+                    {
+                        gameTimer.Enabled = false;
+                        mapTimer.Enabled = true;
+                    }
                     break;
                 case (Keys.Escape):
-                    Application.Exit();
+                    if (mapTimer.Enabled)
+                    {
+                        mapTimer.Enabled = false;
+                        gameTimer.Enabled = true;
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
                     break;
             }
         }
@@ -180,7 +193,7 @@ namespace AdventureGameFinal.Screens
                             break;
                         case 1:
                             textLabel.Text = "You have been provided with a map of Misaploya to aid you in your travels. " +
-                                "Press space while travelling to look at it (not available yet). " +
+                                "Press space while travelling to look at it and escape to return to adventuring. " +
                                 "It is suggested that you start small and work your way up to harder quests, visit the town to the southwest to find some smaller quests, " +
                                 "but by all means, if you think you can take on something harder there are three main quests marked on your map. \nSpace to continue";
                             break;
@@ -206,6 +219,11 @@ namespace AdventureGameFinal.Screens
             }
 
             MusicLoop();
+        }
+
+        private void mapTimer_Tick(object sender, EventArgs e)
+        {
+            Refresh();
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -263,7 +281,7 @@ namespace AdventureGameFinal.Screens
                     //dummy
                     //e.Graphics.DrawImage(Form1.dummy.image, Form1.dummy.x, Form1.dummy.y, 59, 67);
                     if (Form1.player.x + 28 > Form1.dummy.x && Form1.player.x < Form1.dummy.x + 59
-                    && Form1.player.y + 40 > Form1.dummy.y && Form1.player.y < Form1.dummy.y + 67 - 40 
+                    && Form1.player.y + 40 > Form1.dummy.y && Form1.player.y < Form1.dummy.y + 67 - 40
                     && Form1.dummy.defeated == false)
                     {
                         gameTimer.Enabled = false;
@@ -285,8 +303,8 @@ namespace AdventureGameFinal.Screens
                     if (Form1.player.x + 28 > Form1.bartholomewI.x && Form1.player.x < Form1.bartholomewI.x + 32
                     && Form1.player.y + 40 > Form1.bartholomewI.y && Form1.player.y < Form1.bartholomewI.y + 32 - 40)
                     {
-                        if(Form1.bartholomewI.convoValue == 1)
-                        {                            
+                        if (Form1.bartholomewI.convoValue == 1)
+                        {
                             gameTimer.Enabled = false;
                             Form1.player.x = previousX;
                             Form1.player.y = previousY;
@@ -295,7 +313,7 @@ namespace AdventureGameFinal.Screens
                             textLabel.Visible = true;
                             characterImage.Image = Form1.bartholomewI.image;
                             characterImage.Visible = true;
-                        }                        
+                        }
                     }
                     break;
             }
@@ -342,7 +360,7 @@ namespace AdventureGameFinal.Screens
             switch (currentScreen)
             {
                 case "14E": //start cabin
-                    //loaded
+                            //loaded
                     break;
                 case "15E":
                     //path
@@ -452,7 +470,7 @@ namespace AdventureGameFinal.Screens
             switch (currentScreen)
             {
                 case "14E": //start cabin
-                    //dummy
+                            //dummy
                     e.Graphics.DrawImage(Form1.dummy.image, Form1.dummy.x, Form1.dummy.y, 59, 67);
 
                     //martholomew I
@@ -462,6 +480,12 @@ namespace AdventureGameFinal.Screens
 
             //draw player
             e.Graphics.DrawImage(Form1.player.image, Form1.player.x, Form1.player.y, 28, 40);
+
+            //if map enabled, show map
+            if (mapTimer.Enabled)
+            {
+                e.Graphics.DrawImage(Properties.Resources.Misaployamap, 20, 20);
+            }
         }
 
         /// <summary>
@@ -514,9 +538,11 @@ namespace AdventureGameFinal.Screens
         /// </summary>
         void MusicLoop()
         {
+            //increase counter
             musicCounter++;
 
-            if(musicCounter > musicLoop)
+            //if reached the end, stop and restart music
+            if (musicCounter > musicLoop)
             {
                 music.Stop();
                 music.Play();

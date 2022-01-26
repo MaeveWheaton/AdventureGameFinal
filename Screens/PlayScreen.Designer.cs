@@ -34,6 +34,7 @@ namespace AdventureGameFinal.Screens
             this.textLabel = new System.Windows.Forms.Label();
             this.characterImage = new System.Windows.Forms.PictureBox();
             this.convoTimer = new System.Windows.Forms.Timer(this.components);
+            this.mapTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.characterImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +70,11 @@ namespace AdventureGameFinal.Screens
             // 
             this.convoTimer.Tick += new System.EventHandler(this.convoTimer_Tick);
             // 
+            // mapTimer
+            // 
+            this.mapTimer.Interval = 20;
+            this.mapTimer.Tick += new System.EventHandler(this.mapTimer_Tick);
+            // 
             // PlayScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -94,5 +100,6 @@ namespace AdventureGameFinal.Screens
         private System.Windows.Forms.Label textLabel;
         private System.Windows.Forms.PictureBox characterImage;
         private System.Windows.Forms.Timer convoTimer;
+        private System.Windows.Forms.Timer mapTimer;
     }
 }

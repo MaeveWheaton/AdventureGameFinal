@@ -188,7 +188,7 @@ namespace AdventureGameFinal.Screens
             }
             e.Graphics.DrawEllipse(specialOutline, 50, 500, 100, 100);
             e.Graphics.FillPie(whiteBrush, 50, 500, 100, 100, 0, 120 * specialAttackCounter);
-            e.Graphics.DrawString("N", new Font("Segoe Script", 12), blackBrush, 45, 545);
+            e.Graphics.DrawString("N", new Font("Segoe Script", 20), blackBrush, 65, 545);
 
             //draw characters
             e.Graphics.DrawImage(Form1.player.image, 250, 400, 28 * 4, 40 * 4);

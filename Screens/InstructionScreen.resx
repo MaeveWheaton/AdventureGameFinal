@@ -119,11 +119,11 @@
   </resheader>
   <data name="instructionsLabel.Text" xml:space="preserve">
     <value>Use the arrow keys to navigate.
-To talk to a character, approach and press space.
+To talk to a character approach them.
 Combat is started automatically when you approach 
 a hostile character.
-To access your backpack, press B at any time except 
-when in conversation.
+To access your map, press space at any time except 
+when in conversation. To close it press escape.
 During combat, 
 B - Attack  
                       N - Shield (has a cooldown)  
