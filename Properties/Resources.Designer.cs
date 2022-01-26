@@ -61,6 +61,26 @@ namespace AdventureGameFinal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] background_music {
+            get {
+                object obj = ResourceManager.GetObject("background_music", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] battle_music {
+            get {
+                object obj = ResourceManager.GetObject("battle_music", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap bear_monster {
@@ -271,6 +291,16 @@ namespace AdventureGameFinal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] forest_sound_1 {
+            get {
+                object obj = ResourceManager.GetObject("forest_sound_1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap grass2__1_ {
@@ -307,6 +337,16 @@ namespace AdventureGameFinal.Properties {
             get {
                 object obj = ResourceManager.GetObject("mainscreenbg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] menu_beep {
+            get {
+                object obj = ResourceManager.GetObject("menu_beep", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -387,6 +427,16 @@ namespace AdventureGameFinal.Properties {
             get {
                 object obj = ResourceManager.GetObject("redtree2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] select_granted {
+            get {
+                object obj = ResourceManager.GetObject("select_granted", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -501,6 +551,26 @@ namespace AdventureGameFinal.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] soft_music {
+            get {
+                object obj = ResourceManager.GetObject("soft_music", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] special_attack {
+            get {
+                object obj = ResourceManager.GetObject("special_attack", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap stall {
@@ -517,6 +587,16 @@ namespace AdventureGameFinal.Properties {
             get {
                 object obj = ResourceManager.GetObject("sword2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] symphony_sounds {
+            get {
+                object obj = ResourceManager.GetObject("symphony_sounds", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -587,6 +667,16 @@ namespace AdventureGameFinal.Properties {
             get {
                 object obj = ResourceManager.GetObject("tunnel_fork_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] victory_fanfare {
+            get {
+                object obj = ResourceManager.GetObject("victory_fanfare", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
