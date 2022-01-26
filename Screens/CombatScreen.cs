@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.IO;
 
 namespace AdventureGameFinal.Screens
 {
@@ -26,6 +28,12 @@ namespace AdventureGameFinal.Screens
         SolidBrush playerHealth = new SolidBrush(Color.Green);
         SolidBrush opponentHealth = new SolidBrush(Color.Red);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
+
+        //music variables
+        System.Windows.Media.MediaPlayer music;
+        System.Windows.Media.MediaPlayer specialAttackSound;
+        int musicCounter = 10000;
+        int musicLoop = 5900;
         #endregion
 
         public CombatScreen()
@@ -37,6 +45,12 @@ namespace AdventureGameFinal.Screens
         {
             //start timer
             combatTimer.Enabled = true;
+
+            //open music file
+            music = new System.Windows.Media.MediaPlayer();
+            music.Open(new Uri(Application.StartupPath + "/Resources/battle_music.mp3"));
+            specialAttackSound = new System.Windows.Media.MediaPlayer();
+            specialAttackSound.Open(new Uri(Application.StartupPath + "/Resources/special_attack.mp3"));
         }
 
         private void CombatScreen_KeyUp(object sender, KeyEventArgs e)
@@ -68,6 +82,7 @@ namespace AdventureGameFinal.Screens
                 case (Keys.N):
                     if(specialAttackCounter >= 3)
                     {
+                        specialAttackSound.Play();
                         playerAction = "specialAttack";
                         specialAttackCounter = 0;
                     }
@@ -79,7 +94,7 @@ namespace AdventureGameFinal.Screens
                     spaceDown = true;
                     break;
                 case (Keys.Escape):
-                    
+                    //pause battle, leave without completing
                     break;
             }
         }
@@ -132,6 +147,8 @@ namespace AdventureGameFinal.Screens
                 ReturnToGame();
             }
 
+            MusicLoop();
+
             Refresh();
         }
 
@@ -181,11 +198,7 @@ namespace AdventureGameFinal.Screens
             Form1.player.shielded = false;
             combatTimer.Enabled = false;
 
-            if (Form1.opponent.defeated)
-            {
-
-            }
-            else
+            if (Form1.opponent.defeated == false)
             {
                 Form1.player.health = 100;
                 Form1.player.x = 600;
@@ -202,6 +215,21 @@ namespace AdventureGameFinal.Screens
             f.Controls.Add(ns);
 
             ns.Focus();
+        }
+
+        /// <summary>
+        /// Makes sure music runs continuously
+        /// </summary>
+        void MusicLoop()
+        {
+            musicCounter++;
+
+            if (musicCounter > musicLoop)
+            {
+                music.Stop();
+                music.Play();
+                musicCounter = 0;
+            }
         }
     }
 }

@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 using System.Xml;
+using System.IO;
+
 
 namespace AdventureGameFinal.Screens
 {
@@ -53,6 +56,10 @@ namespace AdventureGameFinal.Screens
         System.Drawing.Bitmap[] images = { Properties.Resources.greentree, Properties.Resources.smallHouse, Properties.Resources.stall };
         int newX, newY, newWidth, newLength, newImage;
 
+        //music variables
+        System.Windows.Media.MediaPlayer music;
+        int musicCounter = 10000;
+        int musicLoop = 2450;
         #endregion
 
         public PlayScreen()
@@ -76,6 +83,10 @@ namespace AdventureGameFinal.Screens
                 characterImage.Visible = true;
                 Form1.loaded = true;
             }
+
+            //open music file
+            music = new System.Windows.Media.MediaPlayer();
+            music.Open(new Uri(Application.StartupPath + "/Resources/forest_sound_1.mp3"));
 
             LoadScreen();
         }
@@ -193,6 +204,8 @@ namespace AdventureGameFinal.Screens
                     #endregion
                     break;
             }
+
+            MusicLoop();
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -316,6 +329,8 @@ namespace AdventureGameFinal.Screens
                 LoadScreen();
             }
             #endregion
+
+            MusicLoop();
 
             Refresh();
         }
@@ -491,6 +506,21 @@ namespace AdventureGameFinal.Screens
 
                     break;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Makes sure music runs continuously
+        /// </summary>
+        void MusicLoop()
+        {
+            musicCounter++;
+
+            if(musicCounter > musicLoop)
+            {
+                music.Stop();
+                music.Play();
+                musicCounter = 0;
             }
         }
     }

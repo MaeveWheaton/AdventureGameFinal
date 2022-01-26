@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 using System.Xml;
 
 namespace AdventureGameFinal
@@ -16,6 +17,13 @@ namespace AdventureGameFinal
         #region Global variables
         Boolean upArrowDown, downArrowDown, spaceDown;
         int selectionState = 0;
+
+        //music variables
+        System.Windows.Media.MediaPlayer music;
+        System.Windows.Media.MediaPlayer selectionChangeBeep;
+        System.Windows.Media.MediaPlayer selectionCompletedSound;
+        int musicCounter = 10000;
+        int musicLoop = 3500;
         #endregion
 
         public MainScreen()
@@ -65,6 +73,13 @@ namespace AdventureGameFinal
             startLabel.BorderStyle = BorderStyle.Fixed3D;
             howToLabel.BorderStyle = BorderStyle.None;
             exitLabel.BorderStyle = BorderStyle.None;
+
+            music = new System.Windows.Media.MediaPlayer();
+            music.Open(new Uri(Application.StartupPath + "/Resources/background_music.mp3"));
+            selectionChangeBeep = new System.Windows.Media.MediaPlayer();
+            music.Open(new Uri(Application.StartupPath + "/Resources/menu_beep.mp3"));
+            selectionCompletedSound = new System.Windows.Media.MediaPlayer();
+            music.Open(new Uri(Application.StartupPath + "/Resources/select_granted.mp3"));
         }
 
         private void mainScreenTimer_Tick(object sender, EventArgs e)
@@ -77,17 +92,27 @@ namespace AdventureGameFinal
                     #region Case 0
                     if (downArrowDown) //change to load selected
                     {
+                        //change selection and visuals
                         selectionState = 1;
                         loadLabel.BorderStyle = BorderStyle.Fixed3D;
                         startLabel.BorderStyle = BorderStyle.None;
+
+                        //play sound
+                        selectionChangeBeep.Play();
 
                         downArrowDown = false;
                     }
                     if (spaceDown) //change to customization screen
                     {
+                        //play sound
+                        selectionCompletedSound.Play();
+                        music.Stop();
+
+                        //stop timer
                         mainScreenTimer.Enabled = false;
                         Form1.loaded = false;
 
+                        //change to customization screen
                         Form f = this.FindForm();
                         f.Controls.Remove(this);
 
@@ -105,27 +130,42 @@ namespace AdventureGameFinal
                     #region Case 1
                     if (upArrowDown) //change to start selected
                     {
+                        //change selection and visuals
                         selectionState = 0;
                         startLabel.BorderStyle = BorderStyle.Fixed3D;
                         loadLabel.BorderStyle = BorderStyle.None;
+
+                        //play sound
+                        selectionChangeBeep.Play();
 
                         upArrowDown = false;
                     }
                     if (downArrowDown) //change to how to selected
                     {
+                        //change selection and visuals
                         selectionState = 2;
                         howToLabel.BorderStyle = BorderStyle.Fixed3D;
                         loadLabel.BorderStyle = BorderStyle.None;
+
+                        //play sound
+                        selectionChangeBeep.Play();
 
                         downArrowDown = false;
                     }
                     if (spaceDown) //change to play screen
                     {
+                        //play sound
+                        selectionCompletedSound.Play();
+                        music.Stop();
+
+                        //stop timer
                         mainScreenTimer.Enabled = false;
                         Form1.loaded = true;
 
+                        //load data
                         LoadPlayerData();
 
+                        //change to play screen
                         Form f = this.FindForm();
                         f.Controls.Remove(this);
 
@@ -143,24 +183,38 @@ namespace AdventureGameFinal
                     #region Case 2
                     if (upArrowDown) //change to load selected
                     {
+                        //change selection and visuals
                         selectionState = 1;
                         loadLabel.BorderStyle = BorderStyle.Fixed3D;
                         howToLabel.BorderStyle = BorderStyle.None;
+
+                        //play sound
+                        selectionChangeBeep.Play();
 
                         upArrowDown = false;
                     }
                     if (downArrowDown) //change to exit selected
                     {
+                        //change selection and visuals
                         selectionState = 3;
                         exitLabel.BorderStyle = BorderStyle.Fixed3D;
                         howToLabel.BorderStyle = BorderStyle.None;
+
+                        //play sound
+                        selectionChangeBeep.Play();
 
                         downArrowDown = false;
                     }
                     if (spaceDown) //change to instuction screen
                     {
-                        mainScreenTimer.Enabled = false;
+                        //play sound
+                        selectionCompletedSound.Play();
+                        music.Stop();
 
+                        //stop timer
+                        mainScreenTimer.Enabled = false;
+                        
+                        //change to instruction screen
                         Form f = this.FindForm();
                         f.Controls.Remove(this);
 
@@ -178,21 +232,33 @@ namespace AdventureGameFinal
                     #region Case 3
                     if (upArrowDown) //change to how to selected
                     {
+                        //change selection and visuals
                         selectionState = 2;
                         howToLabel.BorderStyle = BorderStyle.Fixed3D;
                         exitLabel.BorderStyle = BorderStyle.None;
+
+                        //play sound
+                        selectionChangeBeep.Play();
 
                         upArrowDown = false;
                     }
                     if (spaceDown) //close application
                     {
+                        music.Stop();
                         Application.Exit();
                     }
                     #endregion
                     break;
             }
+
+            MusicLoop();
+
+            Refresh();
         }
 
+        /// <summary>
+        /// Loads saved player data
+        /// </summary>
         void LoadPlayerData()
         {
             XmlReader reader = XmlReader.Create("PlayerData.xml");
@@ -252,6 +318,21 @@ namespace AdventureGameFinal
             }
 
             Form1.playerWeapon = Form1.player.weaponList[Form1.player.weapon];
+        }
+
+        /// <summary>
+        /// Makes sure music runs continuously
+        /// </summary>
+        void MusicLoop()
+        {
+            musicCounter++;
+
+            if (musicCounter > musicLoop)
+            {
+                music.Stop();
+                music.Play();
+                musicCounter = 0;
+            }
         }
     }
 }

@@ -29,10 +29,12 @@ namespace AdventureGameFinal.Screens
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructionScreen));
             this.instructionsLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.returnLabel = new System.Windows.Forms.Label();
+            this.howToTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // instructionsLabel
@@ -72,6 +74,11 @@ namespace AdventureGameFinal.Screens
             this.returnLabel.Text = "Press space to\r\nreturn to menu";
             this.returnLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // howToTimer
+            // 
+            this.howToTimer.Interval = 20;
+            this.howToTimer.Tick += new System.EventHandler(this.howToTimer_Tick);
+            // 
             // InstructionScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -84,6 +91,7 @@ namespace AdventureGameFinal.Screens
             this.DoubleBuffered = true;
             this.Name = "InstructionScreen";
             this.Size = new System.Drawing.Size(1200, 700);
+            this.Load += new System.EventHandler(this.InstructionScreen_Load);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.InstructionScreen_PreviewKeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -95,5 +103,6 @@ namespace AdventureGameFinal.Screens
         private System.Windows.Forms.Label instructionsLabel;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label returnLabel;
+        private System.Windows.Forms.Timer howToTimer;
     }
 }

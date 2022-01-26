@@ -48,10 +48,9 @@ namespace AdventureGameFinal
             this.startLabel.BackColor = System.Drawing.Color.Transparent;
             this.startLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startLabel.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startLabel.Location = new System.Drawing.Point(122, 97);
-            this.startLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.startLabel.Location = new System.Drawing.Point(325, 231);
             this.startLabel.Name = "startLabel";
-            this.startLabel.Size = new System.Drawing.Size(236, 40);
+            this.startLabel.Size = new System.Drawing.Size(629, 95);
             this.startLabel.TabIndex = 0;
             this.startLabel.Text = "Start New Game";
             this.startLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -63,10 +62,9 @@ namespace AdventureGameFinal
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Segoe Script", 20.1F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(104, 42);
-            this.titleLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.titleLabel.Location = new System.Drawing.Point(277, 100);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(265, 44);
+            this.titleLabel.Size = new System.Drawing.Size(660, 113);
             this.titleLabel.TabIndex = 1;
             this.titleLabel.Text = "Adventure Game";
             // 
@@ -77,10 +75,9 @@ namespace AdventureGameFinal
             this.howToLabel.BackColor = System.Drawing.Color.Transparent;
             this.howToLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.howToLabel.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.howToLabel.Location = new System.Drawing.Point(136, 177);
-            this.howToLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.howToLabel.Location = new System.Drawing.Point(363, 422);
             this.howToLabel.Name = "howToLabel";
-            this.howToLabel.Size = new System.Drawing.Size(194, 40);
+            this.howToLabel.Size = new System.Drawing.Size(517, 95);
             this.howToLabel.TabIndex = 2;
             this.howToLabel.Text = "How To Play";
             this.howToLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -95,10 +92,10 @@ namespace AdventureGameFinal
             // 
             this.pictureBox1.BackgroundImage = global::AdventureGameFinal.Properties.Resources.catalystspritesheetsingle;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 192);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(72, 458);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 78);
+            this.pictureBox1.Size = new System.Drawing.Size(147, 186);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -109,10 +106,9 @@ namespace AdventureGameFinal
             this.exitLabel.BackColor = System.Drawing.Color.Transparent;
             this.exitLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitLabel.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitLabel.Location = new System.Drawing.Point(146, 217);
-            this.exitLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.exitLabel.Location = new System.Drawing.Point(389, 517);
             this.exitLabel.Name = "exitLabel";
-            this.exitLabel.Size = new System.Drawing.Size(168, 40);
+            this.exitLabel.Size = new System.Drawing.Size(448, 95);
             this.exitLabel.TabIndex = 4;
             this.exitLabel.Text = "Exit";
             this.exitLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -125,10 +121,9 @@ namespace AdventureGameFinal
             this.spaceLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.spaceLabel.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spaceLabel.ForeColor = System.Drawing.Color.Black;
-            this.spaceLabel.Location = new System.Drawing.Point(136, 257);
-            this.spaceLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.spaceLabel.Location = new System.Drawing.Point(363, 613);
             this.spaceLabel.Name = "spaceLabel";
-            this.spaceLabel.Size = new System.Drawing.Size(194, 27);
+            this.spaceLabel.Size = new System.Drawing.Size(517, 64);
             this.spaceLabel.TabIndex = 5;
             this.spaceLabel.Text = "Press space to select";
             this.spaceLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -140,18 +135,16 @@ namespace AdventureGameFinal
             this.loadLabel.BackColor = System.Drawing.Color.Transparent;
             this.loadLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadLabel.Font = new System.Drawing.Font("Segoe Script", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadLabel.Location = new System.Drawing.Point(146, 137);
-            this.loadLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.loadLabel.Location = new System.Drawing.Point(389, 327);
             this.loadLabel.Name = "loadLabel";
-            this.loadLabel.Size = new System.Drawing.Size(168, 40);
+            this.loadLabel.Size = new System.Drawing.Size(448, 95);
             this.loadLabel.TabIndex = 6;
             this.loadLabel.Text = "Load Game";
             this.loadLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // MainScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::AdventureGameFinal.Properties.Resources.mainscreenbg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.loadLabel);
@@ -162,9 +155,9 @@ namespace AdventureGameFinal
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.startLabel);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainScreen";
-            this.Size = new System.Drawing.Size(450, 294);
+            this.Size = new System.Drawing.Size(1200, 701);
             this.Load += new System.EventHandler(this.MainScreen_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainScreen_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainScreen_PreviewKeyDown);
