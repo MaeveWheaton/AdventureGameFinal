@@ -26,8 +26,8 @@ namespace AdventureGameFinal
     {
         #region Global variables
         //NPCs
-        public static Classes.NPC bear = new Classes.NPC(800, 400, 100, "swords", Form1.swords, "opponent", false, Properties.Resources.bear_monster);
-        public static Classes.NPC dummy = new Classes.NPC(300, 370, 100, "none", Form1.empty, "opponent", false, Properties.Resources.trainingdummy);
+        public static Classes.NPC bear = new Classes.NPC(800, 400, 100, 4, "opponent", false, Properties.Resources.bear_monster);
+        public static Classes.NPC dummy = new Classes.NPC(300, 370, 100, 0, "opponent", false, Properties.Resources.trainingdummy);
         public static Classes.NPC bartholomewI = new Classes.NPC(650, 458, "noncombatant", 0, Properties.Resources.oldmanred1);
         public static Classes.NPC opponent = new Classes.NPC();
 
@@ -43,7 +43,7 @@ namespace AdventureGameFinal
 
         //Base player info
         public static Classes.Player player = new Classes.Player(600, 450, 10, 100, 0, "", empty, 0, false, Properties.Resources.playerTest);
-        public static Classes.Weapon playerWeapon = new Classes.Weapon();
+        public static Classes.Weapon playerWeapon = new Classes.Weapon(0);
         public static List<Classes.Item> playerItems = new List<Classes.Item>();
 
         //Screen values
@@ -117,7 +117,7 @@ namespace AdventureGameFinal
 
             reader.Close();
 
-            empty.Add(new Classes.Weapon());
+            empty.Add(new Classes.Weapon(0));
             player.weaponList = empty;
             playerWeapon = player.weaponList[player.weapon];
         }

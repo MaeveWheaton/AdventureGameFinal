@@ -15,9 +15,10 @@ namespace AdventureGameFinal.Classes
     {
         public int strength;
 
-        public Weapon()
+        public Weapon(int _strength)
         {
-
+            //for dummy and blank player weapon
+            strength = _strength;
         }
 
         public Weapon(string _name, string _type, int _strength, string _image)

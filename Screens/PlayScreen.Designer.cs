@@ -50,9 +50,6 @@ namespace AdventureGameFinal.Screens
             this.textLabel.Name = "textLabel";
             this.textLabel.Size = new System.Drawing.Size(1200, 100);
             this.textLabel.TabIndex = 1;
-            this.textLabel.Text = "Welcome to Misaploya. you have completed your beginners training.  You are now fr" +
-    "ee to roam the world and complete quests. I would suggest starting with visiting" +
-    " the town to the southwest.";
             this.textLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.textLabel.Visible = false;
             // 
@@ -60,7 +57,7 @@ namespace AdventureGameFinal.Screens
             // 
             this.characterImage.Image = global::AdventureGameFinal.Properties.Resources.catalystspritesheetsingle;
             this.characterImage.InitialImage = null;
-            this.characterImage.Location = new System.Drawing.Point(954, 407);
+            this.characterImage.Location = new System.Drawing.Point(984, 406);
             this.characterImage.Name = "characterImage";
             this.characterImage.Size = new System.Drawing.Size(159, 238);
             this.characterImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

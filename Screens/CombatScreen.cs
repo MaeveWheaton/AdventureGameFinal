@@ -24,10 +24,11 @@ namespace AdventureGameFinal.Screens
         Pen blackPen = new Pen(Color.Black, 6);
         Pen whitePen = new Pen(Color.White, 4);
         Pen specialOutline = new Pen(Color.Black, 4);
-        SolidBrush shieldBrush = new SolidBrush(Color.Yellow);
+        SolidBrush shieldBrush = new SolidBrush(Color.Goldenrod);
         SolidBrush playerHealth = new SolidBrush(Color.Green);
         SolidBrush opponentHealth = new SolidBrush(Color.Red);
         SolidBrush whiteBrush = new SolidBrush(Color.White);
+        SolidBrush blackBrush = new SolidBrush(Color.Black);
 
         //music variables
         System.Windows.Media.MediaPlayer music;
@@ -131,7 +132,7 @@ namespace AdventureGameFinal.Screens
             }
             else
             {
-                Form1.opponent.Combat(Form1.player, 4, 5);
+                Form1.opponent.Combat(Form1.player, Form1.opponent.weaponStrength, 5);
                 playerTurn = true;
             }
 
@@ -173,7 +174,7 @@ namespace AdventureGameFinal.Screens
             if (Form1.player.shielded)
             {
                 e.Graphics.FillPie(shieldBrush, 320, 7, 36, 36, 0, shieldCounter / 2);
-                e.Graphics.DrawEllipse(whitePen, 210, 380, 200, 200);
+                e.Graphics.DrawEllipse(blackPen, 210, 380, 200, 200);
             }
 
             //draw special attack warm up and outline, if charged change outline to white
@@ -187,6 +188,7 @@ namespace AdventureGameFinal.Screens
             }
             e.Graphics.DrawEllipse(specialOutline, 50, 500, 100, 100);
             e.Graphics.FillPie(whiteBrush, 50, 500, 100, 100, 0, 120 * specialAttackCounter);
+            e.Graphics.DrawString("N", new Font("Segoe Script", 12), blackBrush, 45, 545);
 
             //draw characters
             e.Graphics.DrawImage(Form1.player.image, 250, 400, 28 * 4, 40 * 4);
@@ -196,6 +198,7 @@ namespace AdventureGameFinal.Screens
         void ReturnToGame()
         {
             Form1.player.shielded = false;
+            music.Stop();
             combatTimer.Enabled = false;
 
             if (Form1.opponent.defeated == false)

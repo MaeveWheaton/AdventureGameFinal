@@ -194,6 +194,7 @@ namespace AdventureGameFinal.Screens
         void StartGame()
         {
             Form1.player.weapon = 0;
+            Form1.playerWeapon = Form1.player.weaponList[Form1.player.weapon];
             customScreenTimer.Enabled = false;
 
             Form f = this.FindForm();

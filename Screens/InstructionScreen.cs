@@ -29,6 +29,7 @@ namespace AdventureGameFinal.Screens
             //open music file
             music = new System.Windows.Media.MediaPlayer();
             music.Open(new Uri(Application.StartupPath + "/Resources/soft_music.mp3"));
+            music.Play();
         }
 
         private void InstructionScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -36,6 +37,10 @@ namespace AdventureGameFinal.Screens
             switch (e.KeyCode)
             {
                 case (Keys.Space):
+                    //stop music
+                    music.Stop();
+
+                    //change to main screen
                     Form f = this.FindForm();
                     f.Controls.Remove(this);
 
@@ -50,6 +55,7 @@ namespace AdventureGameFinal.Screens
 
         private void howToTimer_Tick(object sender, EventArgs e)
         {
+            //loop music
             MusicLoop();
         }
 

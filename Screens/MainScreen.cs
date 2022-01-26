@@ -77,9 +77,9 @@ namespace AdventureGameFinal
             music = new System.Windows.Media.MediaPlayer();
             music.Open(new Uri(Application.StartupPath + "/Resources/background_music.mp3"));
             selectionChangeBeep = new System.Windows.Media.MediaPlayer();
-            music.Open(new Uri(Application.StartupPath + "/Resources/menu_beep.mp3"));
+            selectionChangeBeep.Open(new Uri(Application.StartupPath + "/Resources/menu_beep.mp3"));
             selectionCompletedSound = new System.Windows.Media.MediaPlayer();
-            music.Open(new Uri(Application.StartupPath + "/Resources/select_granted.mp3"));
+            selectionCompletedSound.Open(new Uri(Application.StartupPath + "/Resources/select_granted.mp3"));
         }
 
         private void mainScreenTimer_Tick(object sender, EventArgs e)

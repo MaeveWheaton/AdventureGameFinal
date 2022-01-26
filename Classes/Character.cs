@@ -100,19 +100,19 @@ namespace AdventureGameFinal.Classes
         public int convoValue;
         string type;
         public bool defeated;
+        public int weaponStrength;
 
         public NPC()
         {
 
         }
 
-        public NPC(int _x, int _y, int _health, string _weaponType, List<Weapon> _weaponList, string _type, bool _defeated, System.Drawing.Bitmap _image)
+        public NPC(int _x, int _y, int _health, int _weaponStrength, string _type, bool _defeated, System.Drawing.Bitmap _image)
         {
             x = _x;
             y = _y;
             health = _health;
-            weaponType = _weaponType;
-            weaponList = _weaponList;
+            weaponStrength = _weaponStrength;
             type = _type;
             defeated = _defeated;
             image = _image;
@@ -133,11 +133,7 @@ namespace AdventureGameFinal.Classes
             //Else, reduce player health by weapon strength
             if (player.shielded)
             {
-                if(shieldStrength > weaponStrength)
-                {
-
-                }
-                else
+                if(shieldStrength < weaponStrength)
                 {
                     player.health -= weaponStrength - shieldStrength;
                 }
