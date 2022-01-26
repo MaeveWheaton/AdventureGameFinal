@@ -71,6 +71,10 @@ namespace AdventureGameFinal.Screens
             {
                 //start introduction
                 convoTimer.Enabled = true;
+                textLabel.Visible = true;
+                characterImage.Image = Form1.bartholomewI.image;
+                characterImage.Visible = true;
+                Form1.loaded = true;
             }
 
             LoadScreen();
@@ -129,10 +133,6 @@ namespace AdventureGameFinal.Screens
             {
                 case "intro":
                     #region intro
-                    textLabel.Visible = true;
-                    characterImage.Image = Form1.bartholomewI.image;
-                    characterImage.Visible = true;
-
                     switch (conversationIndex)
                     {
                         case 0:
@@ -160,6 +160,7 @@ namespace AdventureGameFinal.Screens
                     break;
                 case "graduation":
                     #region graduation
+
                     switch (conversationIndex)
                     {
                         case 0:
@@ -180,6 +181,7 @@ namespace AdventureGameFinal.Screens
                             textLabel.Visible = false;
                             characterImage.Visible = false;
                             convoTimer.Enabled = false;
+                            Form1.bartholomewI.convoValue++;
                             gameTimer.Enabled = true;
                             break;
                     }
@@ -239,12 +241,21 @@ namespace AdventureGameFinal.Screens
             switch (currentScreen)
             {
                 case "14E": //start cabin
+                    if (Form1.dummy.defeated && Form1.bartholomewI.convoValue == 0)
+                    {
+                        Form1.dummy = Form1.opponent;
+                        Form1.bartholomewI.convoValue++;
+                    }
+
                     //dummy
                     //e.Graphics.DrawImage(Form1.dummy.image, Form1.dummy.x, Form1.dummy.y, 59, 67);
-                    if(Form1.player.x + 28 > Form1.dummy.x && Form1.player.x < Form1.dummy.x + 59
-                    && Form1.player.y + 40 > Form1.dummy.y && Form1.player.y < Form1.dummy.y + 67 - 40)
+                    if (Form1.player.x + 28 > Form1.dummy.x && Form1.player.x < Form1.dummy.x + 59
+                    && Form1.player.y + 40 > Form1.dummy.y && Form1.player.y < Form1.dummy.y + 67 - 40 
+                    && Form1.dummy.defeated == false)
                     {
                         gameTimer.Enabled = false;
+
+                        Form1.opponent = Form1.dummy;
 
                         Form f = this.FindForm();
                         f.Controls.Remove(this);
@@ -261,9 +272,17 @@ namespace AdventureGameFinal.Screens
                     if (Form1.player.x + 28 > Form1.bartholomewI.x && Form1.player.x < Form1.bartholomewI.x + 32
                     && Form1.player.y + 40 > Form1.bartholomewI.y && Form1.player.y < Form1.bartholomewI.y + 32 - 40)
                     {
-                        gameTimer.Enabled = false;
-                        conversation = "graduation";
-                        convoTimer.Enabled = true;
+                        if(Form1.bartholomewI.convoValue == 1)
+                        {                            
+                            gameTimer.Enabled = false;
+                            Form1.player.x = previousX;
+                            Form1.player.y = previousY;
+                            conversation = "graduation";
+                            convoTimer.Enabled = true;
+                            textLabel.Visible = true;
+                            characterImage.Image = Form1.bartholomewI.image;
+                            characterImage.Visible = true;
+                        }                        
                     }
                     break;
             }

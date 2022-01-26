@@ -24,9 +24,10 @@ namespace AdventureGameFinal
     {
         #region Global variables
         //NPCs
-        public static Classes.NPC bear = new Classes.NPC(800, 400, 100, "swords", Form1.swords, "opponent", Properties.Resources.bear_monster);
-        public static Classes.NPC dummy = new Classes.NPC(300, 370, 100, "none", Form1.empty, "opponent", Properties.Resources.trainingdummy);
-        public static Classes.NPC bartholomewI = new Classes.NPC(650, 458, 100, "swords", Form1.swords, "noncombatant", Properties.Resources.oldmanred1);
+        public static Classes.NPC bear = new Classes.NPC(800, 400, 100, "swords", Form1.swords, "opponent", false, Properties.Resources.bear_monster);
+        public static Classes.NPC dummy = new Classes.NPC(300, 370, 100, "none", Form1.empty, "opponent", false, Properties.Resources.trainingdummy);
+        public static Classes.NPC bartholomewI = new Classes.NPC(650, 458, "noncombatant", 0, Properties.Resources.oldmanred1);
+        public static Classes.NPC opponent = new Classes.NPC();
 
 
         //Empty weapon lists and image array
@@ -172,6 +173,24 @@ namespace AdventureGameFinal
             // end player1 element
             writer.WriteEndElement();
 
+            //write bartholomew I element
+            writer.WriteStartElement("bartholomewI");
+
+            //write defeated and health
+            writer.WriteElementString("convoValue", Convert.ToString(bartholomewI.convoValue));
+
+            //end dummy element
+            writer.WriteEndElement();
+
+            //write dummy element
+            writer.WriteStartElement("Dummy");
+
+            //write dummy health and defeated bool
+            writer.WriteElementString("health", Convert.ToString(dummy.health));
+            writer.WriteElementString("defeated", Convert.ToString(dummy.defeated));
+
+            //end dummy element
+            writer.WriteEndElement();
 
             // end the root element
             writer.WriteEndElement();

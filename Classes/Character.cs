@@ -70,7 +70,7 @@ namespace AdventureGameFinal.Classes
             image = _image;
         }
 
-        public void Combat(string action, int weaponStrength, NPC monster)
+        public void Combat(string action, int weaponStrength, NPC opponent)
         {
             //If attack, reduce monster health by weapon strength
             //If defend, set character to shield up
@@ -78,14 +78,14 @@ namespace AdventureGameFinal.Classes
             switch (action)
             {
                 case "attack":
-                    monster.health -= weaponStrength;
+                    opponent.health -= weaponStrength;
                     break;
                 case "defend":
                     shielded = true;
                     break;
                 case "specialAttack":
                     specialAttackAdd = rand.Next(3, 9);
-                    monster.health -= weaponStrength + specialAttackAdd;
+                    opponent.health -= weaponStrength + specialAttackAdd;
                     break;
                 case "waiting":
                     break;
@@ -97,9 +97,16 @@ namespace AdventureGameFinal.Classes
 
     public class NPC : Character
     {
+        public int convoValue;
         string type;
+        public bool defeated;
 
-        public NPC(int _x, int _y, int _health, string _weaponType, List<Weapon> _weaponList, string _type, System.Drawing.Bitmap _image)
+        public NPC()
+        {
+
+        }
+
+        public NPC(int _x, int _y, int _health, string _weaponType, List<Weapon> _weaponList, string _type, bool _defeated, System.Drawing.Bitmap _image)
         {
             x = _x;
             y = _y;
@@ -107,6 +114,16 @@ namespace AdventureGameFinal.Classes
             weaponType = _weaponType;
             weaponList = _weaponList;
             type = _type;
+            defeated = _defeated;
+            image = _image;
+        }
+
+        public NPC(int _x, int _y, string _type, int _convoValue, System.Drawing.Bitmap _image)
+        {
+            x = _x;
+            y = _y;
+            type = _type;
+            convoValue = _convoValue;
             image = _image;
         }
 

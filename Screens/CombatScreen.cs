@@ -79,7 +79,7 @@ namespace AdventureGameFinal.Screens
                     spaceDown = true;
                     break;
                 case (Keys.Escape):
-                    Application.Exit();
+                    
                     break;
             }
         }
@@ -109,14 +109,14 @@ namespace AdventureGameFinal.Screens
                     {
                         specialAttackCounter++;
                     }
-                    Form1.player.Combat(playerAction, Form1.playerWeapon.strength, Form1.bear);
+                    Form1.player.Combat(playerAction, Form1.playerWeapon.strength, Form1.opponent);
                     playerAction = "waiting";
                     playerTurn = false;
                 }
             }
             else
             {
-                Form1.bear.Combat(Form1.player, 4, 5);
+                Form1.opponent.Combat(Form1.player, 4, 5);
                 playerTurn = true;
             }
 
@@ -125,9 +125,10 @@ namespace AdventureGameFinal.Screens
                 combatTimer.Enabled = false;
                 ReturnToGame();
             }
-            else if(Form1.bear.health <= 0)
+            else if(Form1.opponent.health <= 0)
             {
                 combatTimer.Enabled = false;
+                Form1.opponent.defeated = true;
                 ReturnToGame();
             }
 
@@ -145,7 +146,7 @@ namespace AdventureGameFinal.Screens
 
             //draw health bars
             e.Graphics.FillRectangle(playerHealth, 10, 10, Form1.player.health * 3, 30);
-            e.Graphics.FillRectangle(opponentHealth, this.Width - 310, 10, Form1.bear.health * 3, 30);
+            e.Graphics.FillRectangle(opponentHealth, this.Width - 310, 10, Form1.opponent.health * 3, 30);
 
             //draw outlines
             e.Graphics.DrawRectangle(blackPen, 7, 7, 306, 36);
@@ -172,13 +173,26 @@ namespace AdventureGameFinal.Screens
 
             //draw characters
             e.Graphics.DrawImage(Form1.player.image, 250, 400, 28 * 4, 40 * 4);
-            e.Graphics.DrawImage(Form1.bear.image, 900, 400, 28 * 4, 40 * 4);
+            e.Graphics.DrawImage(Form1.opponent.image, 900, 400, 28 * 4, 40 * 4);
         }
 
         void ReturnToGame()
         {
             Form1.player.shielded = false;
             combatTimer.Enabled = false;
+
+            if (Form1.opponent.defeated)
+            {
+
+            }
+            else
+            {
+                Form1.player.health = 100;
+                Form1.player.x = 600;
+                Form1.player.y = 450;
+                Form1.screenLetter = 4;
+                Form1.screenNumber = 14;
+            }
 
             Form f = this.FindForm();
             f.Controls.Remove(this);

@@ -217,6 +217,16 @@ namespace AdventureGameFinal
 
                     reader.ReadToNextSibling("screenNumber");
                     Form1.screenNumber = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToFollowing("bartholomewI");
+                    reader.ReadToFollowing("convoValue");
+                    Form1.bartholomewI.convoValue = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToFollowing("health");
+                    Form1.dummy.health = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToFollowing("defeated");
+                    Form1.dummy.defeated = Convert.ToBoolean(reader.ReadString());
                 }
             }
 
